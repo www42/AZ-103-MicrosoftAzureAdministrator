@@ -1,0 +1,47 @@
+az account list --all -o table
+subscriptionId=16e03beb-f498-4bc9-92fd-90d426a73581
+az account set --subscription $subscriptionId
+
+
+az group list -o table
+group='testARM-RG'
+location='westeurope'
+az group create --name $group --location $location
+
+# Bespiel 1: Storage Account mit ARM-Template
+# -------------------------------------------
+cat tj/Module_01/MyArmTemplate_StorageAccount.json
+
+# Parameterübergabe manuell
+az group deployment create \
+    --resource-group $group \
+    --template-file tj/Module_01/StorageAccount.json
+
+# Parameterübergabe mit Parameter File, Key=Value, JSON
+az group deployment create \
+    --resource-group $group \
+    --template-file tj/Module_01/StorageAccount.json \
+    --parameters @tj/Module_01/StorageAccount.params.json \
+    --parameters location=northeurope \
+    --parameters '{"storageAccountName": {"value": "adlsn2"}}'
+
+az group deployment create \
+    --resource-group $group \
+    --template-file tj/Module_01/StorageAccount.json \
+    --parameters storageAccountName=adlsn3 \
+    --mode complete
+
+az group deployment list --resource-group $group -o table
+az storage account list -g $group --query '[].{Name:name,Location:location,ResourceGroup:resourceGroup}' -o table
+
+# aufräumen
+az group delete --name $group --yes --no-wait
+
+
+
+# Beispiel 2: VM (windows Server) mit ARM-Template
+# https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows
+
+az group deployment create \
+    --resource-group $group \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
