@@ -1,4 +1,4 @@
-# Module 2
+# Module 02
 az group delete --name az1000301-RG --yes --no-wait
 az group delete --name az1000302-RG --yes --no-wait
 az group delete --name az1000303-RG --yes --no-wait
