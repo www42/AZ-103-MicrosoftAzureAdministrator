@@ -1,7 +1,23 @@
+az account list -o table
+
 # Module 02 Lab "VMs"
 az group delete --name az1000301-RG --yes --no-wait
 az group delete --name az1000302-RG --yes --no-wait
 az group delete --name az1000303-RG --yes --no-wait
+
 # Module 02 Lab "Scale Set"
 az group delete --name az1000301b-RG --yes --no-wait
 az group delete --name az1000302b-RG --yes --no-wait
+
+# Module 03 Lab "Storage"
+az group delete --name az1000201-RG --yes --no-wait
+az group delete --name az1000202-RG --yes --no-wait
+az group delete --name az1000203-RG --yes --no-wait
+
+# Module 04 Lab "DNS"
+az group delete --name az1000401b-RG --yes --no-wait
+az group delete --name az1000402b-RG --yes --no-wait
+
+# Module 05 Lab "Peering"
+az group delete --name az1000401-RG --yes --no-wait
+az group delete --name az1000402-RG --yes --no-wait
