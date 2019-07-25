@@ -21,3 +21,15 @@ az group delete --name az1000402b-RG --yes --no-wait
 # Module 05 Lab "Peering"
 az group delete --name az1000401-RG --yes --no-wait
 az group delete --name az1000402-RG --yes --no-wait
+
+# Module 06 Lab "NetworkWatcher"
+az group delete --name az1010301b-RG --yes --no-wait
+az group delete --name az1010302b-RG --yes --no-wait
+
+
+# Module 09 Lab "ADsync"
+# Remove AD sync
+az group delete --name az1000501-RG --yes --no-wait
+
+# Module 10 Lab "MFA"
+az group delete --name az1010401b-RG --yes --no-wait
