@@ -1,35 +1,46 @@
 az account list -o table
 
-# Module 02 Lab "VMs"
+# Lab Mod 02 (VMs)
 az group delete --name az1000301-RG --yes --no-wait
 az group delete --name az1000302-RG --yes --no-wait
 az group delete --name az1000303-RG --yes --no-wait
 
-# Module 02 Lab "Scale Set"
+# Lab Mod 02 (Scale Set)
 az group delete --name az1000301b-RG --yes --no-wait
 az group delete --name az1000302b-RG --yes --no-wait
 
-# Module 03 Lab "Storage"
+# Lab Module 03 (Storage)
 az group delete --name az1000201-RG --yes --no-wait
 az group delete --name az1000202-RG --yes --no-wait
 az group delete --name az1000203-RG --yes --no-wait
 
-# Module 04 Lab "DNS"
+# Lab Module 04 (DNS)
 az group delete --name az1000401b-RG --yes --no-wait
 az group delete --name az1000402b-RG --yes --no-wait
 
-# Module 05 Lab "Peering"
+# Module 05 (Peering)
 az group delete --name az1000401-RG --yes --no-wait
 az group delete --name az1000402-RG --yes --no-wait
 
-# Module 06 Lab "NetworkWatcher"
+# Lab Mod 06 (NetworkWatcher)
 az group delete --name az1010301b-RG --yes --no-wait
 az group delete --name az1010302b-RG --yes --no-wait
 
+# Lab Mod 07 (ASR)
+az group delete --name az1010101-RG --yes --no-wait
+az group delete --name az1010102-RG --yes --no-wait
 
-# Module 09 Lab "ADsync"
+# Lab Module 08 (Load Balancer and Traffic Manager)
+az group delete --name az1010301-RG --yes --no-wait
+az group delete --name az1010302-RG --yes --no-wait
+
+# Lab Mod 09 (ADsync)
 # Remove AD sync
 az group delete --name az1000501-RG --yes --no-wait
 
-# Module 10 Lab "MFA"
+# Lab Mod 10 (MFA)
 az group delete --name az1010401b-RG --yes --no-wait
+
+# Lab Module 11 (Resource Policies)
+az group delete --name az1000101b-RG --yes --no-wait
+az group delete --name az1000102b-RG --yes --no-wait
