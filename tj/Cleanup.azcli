@@ -45,3 +45,8 @@ az group delete --name az1010401b-RG --yes --no-wait
 # Lab Module 11 (Resource Policies)
 az group delete --name az1000101b-RG --yes --no-wait
 az group delete --name az1000102b-RG --yes --no-wait
+
+# Lab Module 12 (File Sync)
+az group delete --name az1000201b-RG --yes --no-wait
+az group delete --name az1000202b-RG --yes --no-wait
+az group delete --name az1000203b-RG --yes --no-wait
