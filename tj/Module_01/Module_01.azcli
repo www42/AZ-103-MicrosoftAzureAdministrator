@@ -1,4 +1,4 @@
-az account list --all -o table
+az account list --all -o tablej
 subscriptionId=16e03beb-f498-4bc9-92fd-90d426a73581
 az account set --subscription $subscriptionId
 
@@ -34,14 +34,32 @@ az group deployment create \
 az group deployment list --resource-group $group -o table
 az storage account list -g $group --query '[].{Name:name,Location:location,ResourceGroup:resourceGroup}' -o table
 
-# aufräumen
+# clean up
 az group delete --name $group --yes --no-wait
 
 
 
 # Beispiel 2: VM (windows Server) mit ARM-Template
+# -------------------------------------------------
+
 # https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows
 
 az group deployment create \
     --resource-group $group \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+
+
+
+# Beispiel 3: ACI (Azure Container Instance)
+# -------------------------------------------
+
+group="container-RG"
+location='westeurope'
+az group create --name $group --location $location
+
+az group deployment create --resource-group $group --template-file tj/Module_01/ACI.json --parameters @tj/Module_01/ACI.params.json
+
+az container list -o table
+
+# clean up
+az group delete --name $group --yes --no-wait
