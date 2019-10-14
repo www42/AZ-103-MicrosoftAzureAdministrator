@@ -185,19 +185,24 @@ The main tasks for this exercise are as follows:
 1. In the Cloud Shell pane, run the following in order to create a private DNS zone with the first virtual network supporting registration and the second virtual network supporting resolution:
 
    ```pwsh
+   
+   Install-Module -Name Az.PrivateDns -force
+   
    $vnet1 = Get-AzVirtualNetwork -Name az1000402b-vnet1
 
    $vnet2 = Get-AzVirtualNetwork -name az1000402b-vnet2
+   
+   $zone = New-AzPrivateDnsZone -Name adatum.local -ResourceGroupName $rg2.ResourceGroupName
 
-   New-AzDnsZone -Name adatum.local -ResourceGroupName $rg2.ResourceGroupName -ZoneType Private -RegistrationVirtualNetworkId @($vnet1.Id) -ResolutionVirtualNetworkId @($vnet2.Id)
+   $vnet1link = New-AzPrivateDnsVirtualNetworkLink -ZoneName $zone.Name -ResourceGroupName $rg2.ResourceGroupName -Name "vnet1Link" -VirtualNetworkId $vnet1.id -EnableRegistration
+
+   $vnet2link = New-AzPrivateDnsVirtualNetworkLink -ZoneName $zone.Name -ResourceGroupName $rg2.ResourceGroupName -Name "vnet2Link" -VirtualNetworkId $vnet2.id
    ```
-
-   > **Note**: Virtual networks that you assign to an Azure DNS zone cannot contain any resources.
 
 1. In the Cloud Shell pane, run the following in order to verify that the private DNS zone was successfully created:
 
    ```pwsh
-   Get-AzDnsZone -ResourceGroupName $rg2.ResourceGroupName
+   Get-AzPrivateDnsZone -ResourceGroupName $rg2.ResourceGroupName
    ```
 
 
@@ -245,7 +250,7 @@ The main tasks for this exercise are as follows:
 1. Switch back to the lab virtual machine and, in the Cloud Shell pane of the Azure portal window, run the following in order to create an additional DNS record in the private DNS zone:
 
    ```pwsh
-   New-AzDnsRecordSet -ResourceGroupName $rg2.ResourceGroupName -Name www -RecordType A -ZoneName adatum.local -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.104.0.4")
+   New-AzPrivateDnsRecordSet -ResourceGroupName $rg2.ResourceGroupName -Name www -RecordType A -ZoneName adatum.local -Ttl 3600 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address "10.104.0.4")
    ```
 
 1. Switch again to the Remote Desktop session to **az1000402b-vm2** and run the following from the Command Prompt window: 

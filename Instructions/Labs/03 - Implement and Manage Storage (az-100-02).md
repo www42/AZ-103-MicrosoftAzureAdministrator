@@ -83,7 +83,7 @@ The main tasks for this exercise are as follows:
 
     - Location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs
 
-    - Vm Size: **Standard_DS2_v2**
+    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations
 
     - Vm Name: **az1000201-vm1**
 
@@ -303,7 +303,7 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the blade displaying the properties of the second storage account you created in the previous exercise.
 
-1. From the storage account blade, display the properties of its File Service.
+1. From the storage account blade select Files under File Service.
 
 1. From the storage account **Files** blade, create a new file share with the following settings:
 

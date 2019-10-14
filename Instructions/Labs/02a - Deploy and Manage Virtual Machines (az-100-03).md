@@ -6,7 +6,7 @@ lab:
 
 # Lab: Deploy and Manage Virtual Machines
 
-All tasks in this lab are performed from the Azure portal (including a PowerShell Cloud Shell session) except for Excercise 2 Task 2 and Exercise 2 Task 3, which include steps performed from a Remote Desktop session to an Azure VM
+All tasks in this lab are performed from the Azure portal (including a PowerShell Cloud Shell session) except for Exercise 2 Task 2 and Exercise 2 Task 3, which include steps performed from a Remote Desktop session to an Azure VM
 
    > **Note**: When not using Cloud Shell, the lab virtual machine must have Azure PowerShell module installed [**https://docs.microsoft.com/en-us/powershell/azure/install-Az-ps**](https://docs.microsoft.com/en-us/powershell/azure/install-Az-ps)
 
@@ -254,7 +254,7 @@ The main tasks for this exercise are as follows:
 
     - Image SKU: **16.04.0-LTS**
 
-    - Vm Size: **Standard_DS2_v2**
+    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations 
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
 
