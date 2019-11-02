@@ -99,7 +99,15 @@ The main tasks for this exercise are as follows:
 
 1. Click **OK**.
 
-1. Leave all other default values, and click **Review + create**.
+1. Click **Next: Management >**.
+
+1. On the Management tab, review the default settings and note that boot diagnostics are turned on with a new diagnostics storage account automatically preconfigured.
+
+1. Click **Next: Advanced >**.
+
+1. On the Advanced tab, review the available settings.
+
+1. Leave all settings with their default values, and click **Review + create**.
 
 1. Click **Create**.
 
@@ -292,7 +300,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **az1000302-vm0** blade, display the **Networking** blade.
 
-1. From the **az1000302-vm0 - Networking** blade, click the link representing the network interface.
+1. On the **az1000302-vm0 - Networking** blade, click the entry representing network interface (with name starting with az1000302-vm0).
 
 1. From the blade displaying the properties of the network interface of **az1000302-vm0**, navigate to its **IP configurations** blade.
 
@@ -487,7 +495,7 @@ The main tasks for this exercise are as follows:
 
     - Configuration Modules or Script: **"az-100-03_install_iis_vmss.zip"**
 
-    - Module-qualified Name of Configuration: **az-100-03_install_iis_vmss.ps1\IISInstall**
+    - Module-qualified Name of Configuration: **az-100-03_install_iis_vmss.ps1\\IISInstall**
 
     - Configuration Arguments: leave blank
 

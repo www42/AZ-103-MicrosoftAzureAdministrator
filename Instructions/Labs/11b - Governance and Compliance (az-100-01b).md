@@ -12,7 +12,7 @@ All tasks in this lab are performed from the Azure portal (including a PowerShel
 
 Lab files: 
 
--  **Labfiles\\Module_11\\Governance_and_Compliance\\AZ-100.1/az-100-01b_azuredeploy.json**
+-  **Labfiles\\Module_11\\Governance_and_Compliance\\AZ-100.1\\az-100-01b_azuredeploy.json**
 
 -  **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.parameters.json**
 
@@ -415,3 +415,53 @@ The main tasks for this exercise are as follows:
 
 
 > **Result**: After you completed this exercise, you have created a resource group-level lock to prevent accidental changes and validated its functionality. 
+
+## Exercise 3: Remove lab resources
+
+#### Task 1: Delete the resource group-level lock.
+
+1. In the Azure portal, navigate to the **az1000101b-RG** resource group blade.
+
+1. In the Azure portal, navigate to the **az1000101b-RG** resource group blade.
+
+1. From the **az1000101b-RG** resource group blade, display the **az1000101b-RG - Locks** blade.
+
+1. On the **az1000101b-RG - Locks** blade, delete the **az1000101b-roLock**.
+
+#### Task 2: Delete the policy assignment and definition.
+
+1. In the Azure portal, navigate to the **Policy** blade.
+
+1. From the **Policy**, blade navigate to the **Policy - Assignments** blade. 
+
+1. From the **Policy - assignments** blade, remove the assignment you created earlier in this lab. 
+
+1. From the **Policy**, blade navigate to the **Policy - Definitions** blade. 
+
+1. From the **Policy - Definitions** blade, delete all definitions you created earlier in this lab. 
+
+#### Task 3: Open Cloud Shell
+
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+
+1. At the Cloud Shell interface, select **Bash**.
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
+
+   ```sh
+   az group list --query "[?starts_with(name,'az100010')].name" --output tsv
+   ```
+
+1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
+#### Task 4: Delete resource groups
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
+
+   ```sh
+   az group list --query "[?starts_with(name,'az100010')].name" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   ```
+
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
+> **Result**: In this exercise, you removed the resources used in this lab.
