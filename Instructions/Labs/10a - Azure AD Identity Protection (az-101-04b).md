@@ -227,9 +227,11 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade of the AdatumLab101-4b Azure AD tenant, navigate to the **AdatumLab101-4b - Overview** blade.
 
-1. From the **AdatumLab101-4b - Overview** blade, navigate to the **AdatumLab101-4b - MFA** blade.
+1. From the **AdatumLab101-4b - Overview** blade, navigate to the Multi-Factor Authentication blade.
 
-1. From the **AdatumLab101-4b - MFA** blade, navigate to the **Multi-Factor Authentication - Fraud alert** blade and configure the following settings:
+   > **Note**: You might need to first click the **Security** entry in the vertical menu of the Azure Active Directory tenant blade.
+
+1. From the Multi-Factor Authentication blade, navigate to the **Multi-Factor Authentication - Fraud alert** blade and configure the following settings:
 
     - Allow users to submit fraud alerts: **On**
 
@@ -305,7 +307,7 @@ The main tasks for this exercise are as follows:
 
         - Conditions:
 
-            - User risk: **Medium and above**
+            - User risk: **Low and above**
 
     - Controls:
 
@@ -379,9 +381,9 @@ The main tasks for this exercise are as follows:
 
 1. Start Internet Explorer, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using the Microsoft account you used to create the **AdatumLab101-4b** Azure AD tenant. 
 
-1. In the Azure portal, navigate to the **Azure AD Identity Protection - Risk events** blade and note that the entry representing **Sign-in from anonymous IP address**.
+1. In the Azure portal, navigate to the **Azure AD Identity Protection - Risk Detections** blade and note that the entry representing **Sign-in from anonymous IP address**.
 
-1. From the **Azure AD Identity Protection - Risk events** blade, navigate to the **Azure AD Identity Protection - Users flagged for risk** blade and note the entry representing **aaduser2**.
+1. From the **Azure AD Identity Protection - Risk Detections** blade, navigate to the **Azure AD Identity Protection - Users flagged for risk** blade and note the entry representing **aaduser2**.
 
 > **Result**: After you completed this exercise, you have enabled Azure AD Identity Protection, configured user risk policy and sign-in risk policy, as well as validated Azure AD Identity Protection configuration by simulating risk events
 

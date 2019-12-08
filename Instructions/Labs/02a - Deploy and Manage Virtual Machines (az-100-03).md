@@ -89,7 +89,7 @@ The main tasks for this exercise are as follows:
 
 1. Click **Next: Networking >**.
 
-1. On the Networking tab, click **Create new** under Virtual Network. Use the virtual network name already assigned by default and specify the following:
+1. On the Networking tab, click **Create new** under Virtual Network. Use the virtual network name already assigned by default, delete the default address range and specify the following:
 
     - Virtual network address range: **10.103.0.0/16**
 
@@ -99,7 +99,15 @@ The main tasks for this exercise are as follows:
 
 1. Click **OK**.
 
-1. Leave all other default values, and click **Review + create**.
+1. Click **Next: Management >**.
+
+1. On the Management tab, review the default settings and note that boot diagnostics are turned on with a new diagnostics storage account automatically preconfigured.
+
+1. Click **Next: Advanced >**.
+
+1. On the Advanced tab, review the available settings.
+
+1. Leave all settings with their default values, and click **Review + create**.
 
 1. Click **Create**.
 
@@ -246,8 +254,6 @@ The main tasks for this exercise are as follows:
 
     - Admin Password: **Pa55w.rd1234**
 
-    - Virtual Network Name: **az1000301-RG-vnet** _(change this value from the template default)_
-
     - Image Publisher: **Canonical**
 
     - Image Offer: **UbuntuServer**
@@ -255,6 +261,12 @@ The main tasks for this exercise are as follows:
     - Image SKU: **16.04.0-LTS**
 
     - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations 
+   
+    - Virtual Network Name: **az1000301-RG-vnet**
+    
+    - Virtual Netowrk Resource Group: the name of a new resource group **az1000301-RG**
+    
+    - Subnet Name: **subnet0**
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
 
@@ -292,7 +304,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **az1000302-vm0** blade, display the **Networking** blade.
 
-1. From the **az1000302-vm0 - Networking** blade, click the link representing the network interface.
+1. On the **az1000302-vm0 - Networking** blade, click the entry representing network interface (with name starting with az1000302-vm0).
 
 1. From the blade displaying the properties of the network interface of **az1000302-vm0**, navigate to its **IP configurations** blade.
 
@@ -360,7 +372,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the RDP session to **az1000301-vm0**, start Internet Explorer and download **putty.exe** from [**https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html**](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 
 
-1. Use **putty.exe** to verify that you can successfully connect to **az1000302-vm0** on its private IP address via the **SSH** protocol (TCP 22).
+1. Use **putty.exe** to verify that you can successfully connect to **az1000302-vm0** on its private IP address(**10.103.0.100**) via the **SSH** protocol (TCP 22).
 
 1. When prompted, authenticate by specifying the following values:
 
@@ -487,7 +499,7 @@ The main tasks for this exercise are as follows:
 
     - Configuration Modules or Script: **"az-100-03_install_iis_vmss.zip"**
 
-    - Module-qualified Name of Configuration: **az-100-03_install_iis_vmss.ps1\IISInstall**
+    - Module-qualified Name of Configuration: **az-100-03_install_iis_vmss.ps1\\IISInstall**
 
     - Configuration Arguments: leave blank
 
@@ -501,7 +513,7 @@ The main tasks for this exercise are as follows:
 
     - Auto Upgrade Minor Version: **Yes**
 
-1. Navigate to the **az1000303vmss0 - Instances** blade and initiate the upgrade of the **az1000303vmss0_0** instance.
+1. Navigate to the **az1000303vmss0 - Instances** blade and click on **Upgrade** to initiate the upgrade of the **az1000303vmss0_0** instance.
 
    > **Note**: The update will trigger application of the DSC configuration script. Wait for upgrade to complete. This should take about 5 minutes. You can monitor the progress from the **az1000303vmss0 - Instances** blade.
 

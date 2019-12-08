@@ -201,9 +201,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Manage Azure Storage Blob Service
 
-1. In the Azure portal, navigate to the **Blobs** blade of the first storage account you created. 
+1. In the Azure portal, navigate to the **Containers** blade of the first storage account you created. 
 
-1. From the **Blobs** blade of the first storage account, create a new container named **az1000202-container** with the **Public access level** set to **Private (no anonymous access)**. 
+1. From the **Containers** blade of the first storage account, create a new container named **az1000202-container** with the **Public access level** set to **Private (no anonymous access)**. 
 
 1. From the **az1000202-container** blade, upload **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.json** and **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.parameters.json** into the container.
 
@@ -257,7 +257,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 5: Use a Shared Access Signature (SAS) key to access a blob
 
-1. From the **Blobs** blade of the second storage account, navigate to the container **az1000202-container**, and then open the **az-100-02_azuredeploy.json** blade.
+1. From the **Containers** blade of the second storage account, navigate to the container **az1000202-container**, and then open the **az-100-02_azuredeploy.json** blade.
 
 1. On the **az-100-02_azuredeploy.json** blade, copy the value of the **URL** property.
 
@@ -303,9 +303,9 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the blade displaying the properties of the second storage account you created in the previous exercise.
 
-1. From the storage account blade select Files under File Service.
+1. From the storage account blade select **File shares** under File Service.
 
-1. From the storage account **Files** blade, create a new file share with the following settings:
+1. From the storage account **File shares** blade, create a new file share with the following settings:
 
     - Name: **az10002share1**
 
@@ -334,7 +334,9 @@ The main tasks for this exercise are as follows:
 
 1. Paste the script into the PowerShell ISE session, add `` -Persist `` at the end of the script, execute the script, and verify that its output confirms successful mapping of the Z: drive to the Azure Storage File Service share.
 
-1. Start File Explorer, navigate to the Z: drive and create a folder named **Folder1**.
+1. Right click the Start menu, click **Run**, in the **Open** dialog box type **Z:** and press the **Enter** key. This will open a File Explorer window displaying the content of the **Z:** drive.
+
+1. In the File Explorer window, create a folder named **Folder1** on the Z: drive.
 
 1. In the File Explorer window, navigate to **Folder1** and create a text document named **File1.txt**. 
 
