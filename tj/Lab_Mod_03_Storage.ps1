@@ -1,4 +1,5 @@
-Get-AzContext
+Login-AzAccount
+Get-AzContext | fl
 
 # Exercise 1  Task 4  Copy a container and blobs between Azure Storage accounts
 $containerName = 'az1000202-container'
@@ -16,3 +17,15 @@ $containerToken2 = New-AzStorageContainerSASToken -Context $context2 -ExpiryTime
 
 # azcopy.exe muss installiert sein
 azcopy cp $containerToken1 $containerToken2 --recursive=true
+
+
+$connectTestResult = Test-NetConnection -ComputerName durlach02.file.core.windows.net -Port 445
+$connectTestResult
+if ($connectTestResult.TcpTestSucceeded) {
+    # Save the password so the drive will persist on reboot
+    cmd.exe /C "cmdkey /add:`"durlach02.file.core.windows.net`" /user:`"Azure\durlach02`" /pass:`"84fPq65HGuqc4zpYwQwuYiObLbHTkJhLCkFthBlBhaVH+Gm1rnaxQfjFsf2tMMS+bdFe3cKqjDCZBgWjxjQB7Q==`""
+    # Mount the drive
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\durlach02.file.core.windows.net\az10002share1"-Persist
+} else {
+    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}

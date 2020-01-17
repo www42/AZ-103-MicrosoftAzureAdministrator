@@ -1,10 +1,12 @@
+Login-AzAccount
+
 # Exercise 1  Task 2: Create a DNS record in the public DNS zone
 Invoke-RestMethod http://ipinfo.io/json | Select-Object -ExpandProperty IP
 
 $rg = Get-AzResourceGroup -Name az1000401b-RG
 
 # Create PIP
-New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -Sku Basic -AllocationMethod Static -Name az1000401b-pip -Location $rg.Location
+New-AzPublicIpAddress -ResourceGroupName $rg.Name -Sku Basic -AllocationMethod Static -Name az1000401b-pip -Location $rg.Location
 
 
 # Exercise 2 
