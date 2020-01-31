@@ -136,7 +136,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Licenses - Overview** blade, navigate to the **Licenses - All products** blade.
 
-1. From the **Licenses - All products** blade, navigate to the **Activate** blade and activate **Azure AD Premium P2** free trial.
+1. From the **Licenses - All products** blade, click **Try/Buy**, click **Free Trial of Azure AD Premium P2**, and then click **Activate**.
 
 
 #### Task 3: Create Azure AD users and groups.
@@ -227,7 +227,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade of the AdatumLab101-4b Azure AD tenant, navigate to the **AdatumLab101-4b - Overview** blade.
 
-1. From the **AdatumLab101-4b - Overview** blade, navigate to the Multi-Factor Authentication blade.
+1. From the **AdatumLab101-4b - Overview** blade, navigate to the Security blade, then MFA blade.
 
    > **Note**: You might need to first click the **Security** entry in the vertical menu of the Azure Active Directory tenant blade.
 
