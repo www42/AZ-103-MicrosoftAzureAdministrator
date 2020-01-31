@@ -78,7 +78,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Licenses - Overview** blade, navigate to the **Products** blade.
 
-1. From the **Products** blade, navigate to the **Activate** blade and activate **Azure AD Premium P2** free trial.
+1. From the **Licenses - All products** blade, click **Try/Buy**, **Free Trial of Azure AD Premium P2**, followed by **Activate**.
 
 
 #### Task 3: Create and configure Azure AD users
@@ -163,8 +163,6 @@ The main tasks for this exercise are as follows:
 
     - Dynamic user members:
 
-        - Simple rule
-
         - Add users where: **department Equals Sales**
 
 1. From the **Groups - All groups** blade, navigate to the **Group** blade and create a new group with the following settings:
@@ -179,7 +177,7 @@ The main tasks for this exercise are as follows:
 
     - Dynamic user members:
 
-        - Advanced rule: **(user.department -eq "Sales") -or (user.department -eq "Finance")**
+        - Add rule: **(user.department -eq "Sales") -or (user.department -eq "Finance")**
 
 1. From the **Groups - All groups** blade, navigate to the blades of **Sales** and **Sales and Finance** groups, and note that the group membership evaluation is in progress. Wait until the evalution completes, then navigate to the **Members** blade, and verify that the group membership is correct.
 
@@ -294,18 +292,14 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Configure the application for a single sign-on
 
-1. From the **Microsoft OneDrive - Overview** blade, navigate to the **Microsoft OneDrive - Getting started** blade.
-
-1. On the **Microsoft OneDrive - Getting started** blade, use the **Configure single sign-on (required)** option to navigate to the **Microsoft OneDrive - Single sign-on** blade.
+1. On the **Overview** blade, select **Set up single sign on**.
 
 1. On the **Microsoft OneDrive - Single sign-on** blade, select the **Password-based** option and save the configuration.
 
 
 #### Task 3: Assign users to the application
 
-1. Navigate back to the **Microsoft OneDrive - Getting started** blade.
-
-1. On the **Microsoft OneDrive - Getting started** blade, use the **Assign a user for testing (required)** option to navigate to the **Users and groups** blade for **Microsoft OneDrive**.
+1. Navigate to the **Overview** blade and click **Assign users and groups**
 
 1. From the **Users and groups** blade for **Microsoft OneDrive**, navigate to the **Add Assignment** blade and add the following assignment:
 
@@ -347,3 +341,19 @@ The main tasks for this exercise are as follows:
    > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your default Azure AD tenant once you complete this lab.
 
 > **Result**: After you completed this exercise, you have added an application from the Azure AD gallery, configured the application for a single sign-on, assigned users to the application, and validated single sign-on for the application.
+
+## Exercise 3: Remove lab resources
+
+#### Task 1: Remove Azure AD tenant
+
+1.	In the Azure portal, sign in to the Azure AD tenant you created in this lab as the user account you used to provision it.
+
+1.	Delete all managed Azure AD user accounts.
+
+1.	Delete all Azure AD groups.
+
+1.	Delete all Enterprise App Registrations.
+
+1.	Cancel and then delete the Premium P2 licenses (note that it make take up to 72 hours for this change to take effect).
+
+1.	Delete the Azure AD tenant. 
