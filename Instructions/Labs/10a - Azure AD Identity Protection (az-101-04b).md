@@ -126,7 +126,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, set the **Directory + subscription** filter to the newly created Azure AD tenant.
 
-   > **Note**: The **Directory + subscription** filter appears to the right of the Cloud Shell icon in the toolbar of the Azure portal
+   > **Note**: The **Directory + subscription** filter is located to the right of the Cloud Shell icon in the toolbar of the Azure portal
 
    > **Note**: You might need to refresh the browser window if the **AdatumLab101-4b** entry does not appear in the **Directory + subscription** filter list.
 
@@ -136,7 +136,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Licenses - Overview** blade, navigate to the **Licenses - All products** blade.
 
-1. From the **Licenses - All products** blade, click **Try/Buy**, click **Free Trial of Azure AD Premium P2**, and then click **Activate**.
+1. From the **Licenses - All products** blade, click **Try/Buy**, click **Free Trial** of Azure AD Premium P2, and then click **Activate**.
 
 
 #### Task 3: Create Azure AD users and groups.
@@ -145,40 +145,31 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - Name: **aaduser1**
-
     - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
    > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile: **Default**
-
-    - Properties: **Default**
+    - Name: **aaduser1**
+    
+    - Password: ensure that the option **Auto-generate password** is selected, check the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
 
     - Groups: **0 groups selected**
 
     - Directory role: **Global administrator**
-
-    - Password: select the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
-
+    
 1. From the **Users - All users** blade, create a new user with the following settings:
-
-    - Name: **aaduser2**
 
     - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
    > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile: **Default**
+    - Name: **aaduser2**
 
-    - Properties: **Default**
+    - Password: ensure that the option **Auto-generate password** is selected, check the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
 
     - Groups: **0 groups selected**
 
     - Directory role: **User**
-
-    - Password: select the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
-
 
 #### Task 4: Assign Azure AD Premium v2 licenses to Azure AD users
 
