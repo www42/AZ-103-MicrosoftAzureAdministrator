@@ -194,7 +194,7 @@ The main tasks for this exercise are as follows:
 
     - Selected group: **Sales**
 
-1. From the **Password reset - Properties** blade, navigate to the **Password reset - Auhentication methods** blade and configure the following settings:
+1. From the **Password reset - Properties** blade, navigate to the **Password reset - Authentication methods** blade and configure the following settings:
 
     - Number of methods required to reset: **1**
 
@@ -311,9 +311,9 @@ The main tasks for this exercise are as follows:
 
         - Assign credentials to be shared among all group members: **Yes**
 
-        - Email Address: the name of the Microsoft Account you are using for this lab
+        - loginfmt: the name of the Microsoft Account you are using for this lab
 
-        - Password: the password of the Microsoft Account you are using for this lab
+        - passwd: the password of the Microsoft Account you are using for this lab
 
 1. Sign out from the Azure portal and close the Microsoft Edge window.
 
