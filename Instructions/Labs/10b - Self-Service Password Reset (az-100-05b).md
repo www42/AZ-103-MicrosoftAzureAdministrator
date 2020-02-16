@@ -5,18 +5,18 @@ lab:
 ---
 
 # Lab: Self-Service Password Reset
-  
-All tasks in this lab are performed from the Azure portal 
+
+All tasks in this lab are performed from the Azure portal
 
 Lab files: none
 
 ### Scenario
-  
+
 Adatum Corporation wants to take advantage of Azure AD Premium features
 
 
 ### Objectives
-  
+
 After completing this lab, you will be able to:
 
 - Manage Azure AD users and groups
@@ -47,28 +47,28 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the Azure subscription you intend to use in this lab.
 
-1. In the Azure portal, navigate to the **New** blade. 
+1. In the Azure portal, navigate to the **New** blade.
 
 1. From the **New** blade, search Azure Marketplace for **Azure Active Directory**.
 
 1. Use the list of search results to navigate to the **Create directory** blade.
 
-1. From the **Create directory** blade, create a new Azure AD tenant with the following settings: 
+1. From the **Create directory** blade, create a new Azure AD tenant with the following settings:
 
   - Organization name: **AdatumLab100-5b**
 
-  - Initial domain name: a unique name consisting of a combination of letters and digits. 
+  - Initial domain name: a unique name consisting of a combination of letters and digits.
 
   - Country or region: **United States**
 
-   > **Note**: Take a note of the initial domain name. You will need it later in this lab. 
+   > **Note**: Take a note of the initial domain name. You will need it later in this lab.
 
 
 #### Task 2: Activate Azure AD Premium v2 trial
 
 1. In the Azure portal, set the **Directory + subscription** filter to the newly created Azure AD tenant.
 
-   > **Note**: The **Directory + subscription** filter appears to the right of the Cloud Shell icon in the toolbar of the Azure portal 
+   > **Note**: The **Directory + subscription** filter appears to the right of the Cloud Shell icon in the toolbar of the Azure portal
 
    > **Note**: You might need to refresh the browser window if the **AdatumLab100-5b** entry does not appear in the **Directory + subscription** filter list.
 
@@ -76,9 +76,9 @@ The main tasks for this exercise are as follows:
 
 1. From the **AdatumLab100-5b - Overview** blade, navigate to the **Licenses - Overview** blade.
 
-1. From the **Licenses - Overview** blade, navigate to the **Products** blade. 
+1. From the **Licenses - Overview** blade, navigate to the **Products** blade.
 
-1. From the **Products** blade, navigate to the **Activate** blade and activate **Azure AD Premium P2** free trial.
+1. From the **Licenses - All products** blade, click **Try/Buy**, **Free Trial of Azure AD Premium P2**, followed by **Activate**.
 
 
 #### Task 3: Create and configure Azure AD users
@@ -89,11 +89,11 @@ The main tasks for this exercise are as follows:
 
     - Name: **aaduser1**
 
-    - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise. 
+    - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
    > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile: 
+    - Profile:
 
         - Department: **Sales**
 
@@ -109,11 +109,11 @@ The main tasks for this exercise are as follows:
 
     - Name: **aaduser2**
 
-    - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise. 
+    - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
    > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile: 
+    - Profile:
 
         - Department: **Finance**
 
@@ -142,14 +142,14 @@ The main tasks for this exercise are as follows:
 
 1. Navigate to **Licenses** blade of your user account and assign to it an Azure Active Directory Premium P2 license with all licensing options enabled.
 
-1. Sign out from the portal and sign back in using the same account you are using for this lab. 
+1. Sign out from the portal and sign back in using the same account you are using for this lab.
 
-   > **Note**: This step is necessary in order for the license assignment to take effect. 
+   > **Note**: This step is necessary in order for the license assignment to take effect.
 
 
 #### Task 5: Manage Azure AD group membership
 
-1. In the Azure portal, navigate to the **Groups - All groups** blade. 
+1. In the Azure portal, navigate to the **Groups - All groups** blade.
 
 1. From the **Groups - All groups** blade, navigate to the **Group** blade and create a new group with the following settings:
 
@@ -161,9 +161,7 @@ The main tasks for this exercise are as follows:
 
     - Membership type: **Dynamic User**
 
-    - Dynamic user members: 
-
-        - Simple rule
+    - Dynamic user members:
 
         - Add users where: **department Equals Sales**
 
@@ -177,18 +175,18 @@ The main tasks for this exercise are as follows:
 
     - Membership type: **Dynamic User**
 
-    - Dynamic user members: 
+    - Dynamic user members:
 
-        - Advanced rule: **(user.department -eq "Sales") -or (user.department -eq "Finance")**
+        - Add rule: **(user.department -eq "Sales") -or (user.department -eq "Finance")**
 
 1. From the **Groups - All groups** blade, navigate to the blades of **Sales** and **Sales and Finance** groups, and note that the group membership evaluation is in progress. Wait until the evalution completes, then navigate to the **Members** blade, and verify that the group membership is correct.
 
 
 #### Task 6: Configure self-service password reset functionality
 
-1. In the Azure portal, navigate to the **AdatumLab100-5b - Overview** blade. 
+1. In the Azure portal, navigate to the **AdatumLab100-5b - Overview** blade.
 
-1. From the **AdatumLab100-5b - Overview** blade, navigate to the **Password reset - Properties** blade. 
+1. From the **AdatumLab100-5b - Overview** blade, navigate to the **Password reset - Properties** blade.
 
 1. On the **Password reset - Properties** blade, configure the following settings:
 
@@ -196,11 +194,11 @@ The main tasks for this exercise are as follows:
 
     - Selected group: **Sales**
 
-1. From the **Password reset - Properties** blade, navigate to the **Password reset - Auhentication methods** blade and configure the following settings:
+1. From the **Password reset - Properties** blade, navigate to the **Password reset - Authentication methods** blade and configure the following settings:
 
     - Number of methods required to reset: **1**
 
-    - Methods available to users: 
+    - Methods available to users:
 
         - **Email**
 
@@ -210,7 +208,7 @@ The main tasks for this exercise are as follows:
 
         - **Security questions**
 
-        - Number of security questions required to register: **3**
+        - Number of security questions required to register: **5**
 
         - Number of security questions required to reset: **3**
 
@@ -251,17 +249,17 @@ The main tasks for this exercise are as follows:
 
 1. Open an InPrivate Microsoft Edge window.
 
-1. In the new browser window, navigate to the Azure portal and, on the **Pick an account** page, type in the **aaduser1** user account name. 
+1. In the new browser window, navigate to the Azure portal and, on the **Pick an account** page, type in the **aaduser1** user account name.
 
 1. On the **Enter password** page, click the **Forgot my password** link.
 
 1. On the **Get back into your account** page, verify the **User ID**, enter the characters in the picture or the words in the audio, and proceed to the next page.
 
-1. On the next page, provide answers to thre security questions using answers you specified in the previous task.
+1. On the next page, provide answers to three security questions using answers you specified in the previous task.
 
 1. On the next page, enter twice a new password and complete the password reset process.
 
-1. Verify that you can sign in to the Azure portal by using the newly reset password. 
+1. Verify that you can sign in to the Azure portal by using the newly reset password.
 
 > **Result**: After you completed this exercise, you have created a new Azure AD tenant, activated Azure AD Premium v2 trial, created and configured Azure AD users, assigned Azure AD Premium v2 licenses to Azure AD users, managed Azure AD group membership, as well as configured and validated self-service password reset functionality
 
@@ -281,31 +279,27 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Add an application from the Azure AD gallery
 
-1. In the Azure portal, navigate to the **AdatumLab100-5b - Overview** blade. 
+1. In the Azure portal, navigate to the **AdatumLab100-5b - Overview** blade.
 
 1. From the **AdatumLab100-5b - Overview** blade, navigate to the **Enterprise applications - All applications** blade.
 
-1. From the **Enterprise applications - All applications** blade, navigate to the **Add an application** blade. 
+1. From the **Enterprise applications - All applications** blade, navigate to the **Add an application** blade.
 
-1. On the **Add an application** blade, search the application gallery for the **Microsoft OneDrive**. 
+1. On the **Add an application** blade, search the application gallery for the **Microsoft OneDrive**.
 
 1. Use the list of search results to navigate to the **Microsoft OneDrive** add app blade and add the app.
 
 
 #### Task 2: Configure the application for a single sign-on
 
-1. From the **Microsoft OneDrive - Overview** blade, navigate to the **Microsoft OneDrive - Getting started** blade. 
-
-1. On the **Microsoft OneDrive - Getting started** blade, use the **Configure single sign-on (required)** option to navigate to the **Microsoft OneDrive - Single sign-on** blade. 
+1. On the **Overview** blade, select **Set up single sign on**.
 
 1. On the **Microsoft OneDrive - Single sign-on** blade, select the **Password-based** option and save the configuration.
 
 
 #### Task 3: Assign users to the application
 
-1. Navigate back to the **Microsoft OneDrive - Getting started** blade. 
-
-1. On the **Microsoft OneDrive - Getting started** blade, use the **Assign a user for testing (required)** option to navigate to the **Users and groups** blade for **Microsoft OneDrive**. 
+1. Navigate to the **Overview** blade and click **Assign users and groups**
 
 1. From the **Users and groups** blade for **Microsoft OneDrive**, navigate to the **Add Assignment** blade and add the following assignment:
 
@@ -313,13 +307,13 @@ The main tasks for this exercise are as follows:
 
     - Select role: **Default access**
 
-    - Assign Credentials: 
+    - Assign Credentials:
 
         - Assign credentials to be shared among all group members: **Yes**
 
-        - Email Address: the name of the Microsoft Account you are using for this lab
+        - loginfmt: the name of the Microsoft Account you are using for this lab
 
-        - Password: the password of the Microsoft Account you are using for this lab
+        - passwd: the password of the Microsoft Account you are using for this lab
 
 1. Sign out from the Azure portal and close the Microsoft Edge window.
 
@@ -336,7 +330,7 @@ The main tasks for this exercise are as follows:
 
 1. When prompted, add the My Apps Secure Sign-in Extension and enable it, including the **Allow for InPrivate browsing** option.
 
-1. Navigate again to the Application Access Panel at [**http://myapps.microsoft.com**](http://myapps.microsoft.com) and sign in by using the **aaduser2** user account. 
+1. Navigate again to the Application Access Panel at [**http://myapps.microsoft.com**](http://myapps.microsoft.com) and sign in by using the **aaduser2** user account.
 
 1. On the Access Panel Applications page, click the **Microsoft OneDrive** icon.
 
@@ -347,3 +341,19 @@ The main tasks for this exercise are as follows:
    > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your default Azure AD tenant once you complete this lab.
 
 > **Result**: After you completed this exercise, you have added an application from the Azure AD gallery, configured the application for a single sign-on, assigned users to the application, and validated single sign-on for the application.
+
+## Exercise 3: Remove lab resources
+
+#### Task 1: Remove Azure AD tenant
+
+1.	In the Azure portal, sign in to the Azure AD tenant you created in this lab as the user account you used to provision it.
+
+1.	Delete all managed Azure AD user accounts.
+
+1.	Delete all Azure AD groups.
+
+1.	Delete all Enterprise App Registrations.
+
+1.	Cancel and then delete the Premium P2 licenses (note that it make take up to 72 hours for this change to take effect).
+
+1.	Delete the Azure AD tenant. 
