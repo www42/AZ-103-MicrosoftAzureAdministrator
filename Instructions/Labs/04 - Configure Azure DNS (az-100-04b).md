@@ -54,7 +54,7 @@ The main tasks for this exercise are as follows:
 
 1. Select **DNS Zone**, and then click **Create**.
 
-1. From the to **Create DNS zone** blade, create a new DNS zone with the following settings:
+1. From the **Create DNS zone** blade, create a new DNS zone with the following settings:
 
     - Subscription: the name of the Azure subscription you are using in this lab
 
