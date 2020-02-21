@@ -44,9 +44,9 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the Azure subscription you intend to use in this lab.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Template deployment (deploy using custom templates)** blade, and then click **Create**.
 
@@ -91,9 +91,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Create the second virtual network in the same region hosting a single Azure VM by using an Azure Resource Manager template
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results and select the **Template deployment (deploy using custom templates)** result, and then click **Create**.
 
@@ -206,9 +206,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Configure user defined routing
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Route table**.
+1. From the **New** blade, search Azure Marketplace for **Route table**.
 
 1. Select **Route table**, and then click **Create**.
 
