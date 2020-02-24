@@ -452,8 +452,6 @@ The main tasks for this exercise are as follows:
 
     - Instance size: **DS2 v2**
 
-    - Deploy as low priority: **No**
-
     - Use managed disks: **Yes**
 
     - Autoscale: **Disabled**
