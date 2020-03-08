@@ -55,9 +55,9 @@ The main tasks for this exercise are as follows:
 
 **Note:** This step registers the Azure Resource Manager Microsoft.Network, Microsoft.Compute, and Microsoft.Storage resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Template deployment**, and select **Template deployment (deploy using custom templates)**
+1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**, and select **Template deployment (deploy using custom templates)**
 
 1. Click **Create**.
 
@@ -117,9 +117,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Create Azure Storage accounts
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Storage account**.
+1. From the **Create a resource** blade, search Azure Marketplace for **Storage account**.
 
 1. Use the list of search results to navigate to the **Create storage account** blade.
 
@@ -143,9 +143,9 @@ The main tasks for this exercise are as follows:
 
 1. Do not wait for the storage account to be provisioned but proceed to the next step.
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Storage account**.
+1. From the **Create a resource** blade, search Azure Marketplace for **Storage account**.
 
 1. Use the list of search results to navigate to the **Create storage account** blade.
 
