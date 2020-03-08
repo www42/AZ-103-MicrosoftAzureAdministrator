@@ -49,9 +49,9 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the Azure subscription you intend to use in this lab.
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Windows Server**. Select **Windows Server** from the search results list.
+1. From the **Create a resource** blade, search Azure Marketplace for **Windows Server**. Select **Windows Server** from the search results list.
 
 1. On the Windows Server page, use the drop-down menu to select **[smalldisk] Windows Server 2016 Datacenter**, and then click **Create**.
 
@@ -216,9 +216,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Deploy two Azure VMs running Linux into an availability set by using an Azure Resource Manager template
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Template deployment**, and select **Template deployment (deploy using custom templates)**.
+1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**, and select **Template deployment (deploy using custom templates)**.
 
 1. Click **Create**.
 
@@ -424,9 +424,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Deploy an Azure VM scale set
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, navigate to the **Create a resource** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Virtual machine scale set**.
+1. From the **Create a resource** blade, search Azure Marketplace for **Virtual machine scale set**.
 
 1. Use the list of search results to navigate to the **Create virtual machine scale set** blade.
 
