@@ -207,9 +207,9 @@ Also Note: If you encounter an error after running these commands that mentions 
 
 1. In the Azure portal, navigate to the **Resource groups** blade and note that you can view only the resource group **az1000101-RG**.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
