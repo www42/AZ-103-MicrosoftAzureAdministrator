@@ -45,9 +45,9 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the target Azure subscription.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
@@ -114,9 +114,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Deploy management Azure VMs running Windows Server 2016 Datacenter with the Web Server (IIS) role installed into an availability set in the second Azure region by using an Azure Resource Manager template
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
@@ -200,9 +200,9 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Before you start this task, ensure that the template deployment you started in the first task of the previous exercise has completed.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Load Balancer**.
+1. From the **New** blade, search Azure Marketplace for **Load Balancer**.
 
 1. Use the list of search results to navigate to the **Create load balancer** blade.
 
@@ -301,9 +301,9 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Before you start this task, ensure that the template deployment you started in the second task of the previous exercise has completed.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Load Balancer**.
+1. From the **New** blade, search Azure Marketplace for **Load Balancer**.
 
 1. Use the list of search results to navigate to the **Create load balancer** blade.
 
@@ -595,9 +595,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Implement Azure Traffic Manager load balancing
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Traffic Manager profile**.
+1. From the **New** blade, search Azure Marketplace for **Traffic Manager profile**.
 
 1. Use the list of search results to navigate to the **Create Traffic Manager profile** blade.
 
