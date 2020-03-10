@@ -551,6 +551,8 @@ The main tasks for this exercise are as follows:
    
    > **Note**: The command command executes asynchronously (as determined by the --nowait parameter), so it might take a few minutes before the resource groups are removed.
 
+   > **Note**: You might have to rerun the command if the resources are not deleted after the first run.
+
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
 
 > **Result**: In this exercise, you removed the resources used in this lab.
