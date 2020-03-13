@@ -49,29 +49,29 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the Azure subscription you intend to use in this lab.
 
-1. In the Azure portal, navigate to the **New** blade.
+1. In the Azure portal, from the left menu, click **Create a resource**.
 
 1. From the **New** blade, search Azure Marketplace for **Windows Server**. Select **Windows Server** from the search results list.
 
-1. On the Windows Server page, use the drop-down menu to select **[smalldisk] Windows Server 2016 Datacenter**, and then click **Create**.
+1. On the Windows Server page, use the drop-down menu to select **Windows Server 2016 Datacenter**, and then click **Create**.
 
 1. Use the **Create a virtual machine** blade to deploy a virtual machine with the following settings:
 
     - Subscription: the name of the subscription you are using in this lab
 
-    - Resource group: the name of a new resource group **az1000301-RG**
+    - Resource group: Click **Create new** and name the new resource group **az1000301-RG**. Click **OK**.
 
     - Virtual machine name: **az1000301-vm0**
 
     - Region: **(US) East US** (or a region closer to you)
 
-      > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+       > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
     - Availability options: **Availability set**
 
     - Availability set: Click **Create New**, and name the new availability set **az1000301-avset0** with **2** fault domains and **5** update domains. Click **OK**.
 
-    - Image: **[smalldisk] Windows Server 2016 Datacenter**
+    - Image: **Windows Server 2016 Datacenter**
 
     - Size: **Standard DS2_v2**
 
@@ -111,25 +111,26 @@ The main tasks for this exercise are as follows:
 
 1. Click **Create**.
 
-   > **Note**: You will configure the network security group you create in this task in the second exercise of this lab
+> **Note**: You will configure the network security group you create in this task in the second exercise of this lab
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+
+> **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
 
 
 #### Task 2: Deploy an Azure VM running Windows Server 2016 Datacenter into the existing availability set by using Azure PowerShell
 
 1. From the Azure Portal, start a PowerShell session in the Cloud Shell pane.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
-1. In the Cloud Shell pane, run the following command:
+1. In the Cloud Shell pane, run the following commands:
 
    ```pwsh
    $vmName = 'az1000301-vm1'
    $vmSize = 'Standard_DS2_v2'
    ```
 
-   > **Note**: This sets the values of variables designating the Azure VM name and its size
+    > **Note**: This sets the values of variables designating the Azure VM name and its size
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -138,7 +139,7 @@ The main tasks for this exercise are as follows:
    $location = $resourceGroup.Location
    ```
 
-   > **Note**: These commands set the values of variables designating the target resource group and its location
+    > **Note**: These commands set the values of variables designating the target resource group and its location
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -148,7 +149,7 @@ The main tasks for this exercise are as follows:
    $subnetid = (Get-AzVirtualNetworkSubnetConfig -Name 'subnet0' -VirtualNetwork $vnet).Id
    ```
 
-   > **Note**: These commands set the values of variables designating the availability set, virtual network, and subnet into which you will deploy the new Azure VM
+    > **Note**: These commands set the values of variables designating the availability set, virtual network, and subnet into which you will deploy the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -158,9 +159,9 @@ The main tasks for this exercise are as follows:
    $nic = New-AzNetworkInterface -Name "$($vmName)$(Get-Random)" -ResourceGroupName $resourceGroup.ResourceGroupName -Location $location -SubnetId $subnetid -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
    ```
 
-   > **Note**: These commands create a new network security group, public IP address, and network interface that will be used by the new Azure VM
+    > **Note**: These commands create a new network security group, public IP address, and network interface that will be used by the new Azure VM
 
-   > **Note**: You will configure the network security group you create in this task in the second exercise of this lab
+    > **Note**: You will configure the network security group you create in this task in the second exercise of this lab
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -170,7 +171,7 @@ The main tasks for this exercise are as follows:
    $adminCreds = New-Object PSCredential $adminUsername, ($adminPassword | ConvertTo-SecureString -AsPlainText -Force)
    ```
 
-   > **Note**: These commands set the values of variables designating credentials of the local Administrator account of the new Azure VM
+    > **Note**: These commands set the values of variables designating credentials of the local Administrator account of the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -180,7 +181,7 @@ The main tasks for this exercise are as follows:
    $skuName = '2016-Datacenter'
    ```
 
-   > **Note**: These commands set the values of variables designating the properties of the Azure Marketplace image that will be used to provision the new Azure VM
+    > **Note**: These commands set the values of variables designating the properties of the Azure Marketplace image that will be used to provision the new Azure VM
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -188,7 +189,7 @@ The main tasks for this exercise are as follows:
    $osDiskType = (Get-AzDisk -ResourceGroupName $resourceGroup.ResourceGroupName)[0].Sku.Name
    ```
 
-   > **Note**: This command sets the values of a variable designating the operating system disk type of the new Azure VM
+    > **Note**: This command sets the values of a variable designating the operating system disk type of the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -201,7 +202,7 @@ The main tasks for this exercise are as follows:
    Set-AzVMBootDiagnostic -VM $vmConfig -Disable
    ```
 
-   > **Note**: These commands set up the properties of the Azure VM configuration object that will be used to provision the new Azure VM, including the VM size, its availability set, network interface, computer name, local Administrator credentials, the source image, the operating system disk, and boot diagnostics settings.
+    > **Note**: These commands set up the properties of the Azure VM configuration object that will be used to provision the new Azure VM, including the VM size, its availability set, network interface, computer name, local Administrator credentials, the source image, the operating system disk, and boot diagnostics settings.
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -209,7 +210,7 @@ The main tasks for this exercise are as follows:
    New-AzVM -ResourceGroupName $resourceGroup.ResourceGroupName -Location $location -VM $vmConfig
    ```
 
-   > **Note**: This command initiates deployment of the new Azure VM
+    > **Note**: This command initiates deployment of the new Azure VM
 
    > **Note**: Do not wait for the deployment to complete but instead proceed to the next task.
 
