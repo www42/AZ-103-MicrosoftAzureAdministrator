@@ -70,7 +70,13 @@ The main tasks for this exercise are as follows:
 
     - Availability options: **Availability set**
 
-    - Availability set: Click **Create New**, and name the new availability set **az1000301-avset0** with **2** fault domains and **5** update domains. Click **OK**.
+    - Availability set: Click **Create new**, use the following settings and then click **OK**:
+
+       - Name: **az1000301-avset0**
+
+       - Fault domains: **2**
+
+       - Update domains: **5**
 
     - Image: **Windows Server 2016 Datacenter**
 
@@ -90,15 +96,15 @@ The main tasks for this exercise are as follows:
 
 1. Click **Next: Networking >**.
 
-1. On the Networking tab, click **Create new** under Virtual Network. Use the virtual network name already assigned by default, delete the default address range and specify the following:
+1. On the Networking tab, click **Create new** under Virtual Network, use the following settings and then click **OK**:
+
+    -Name: Leave the default
 
     - Virtual network address range: **10.103.0.0/16**
 
     - Subnet name: **subnet0**
 
     - Subnet address range: **10.103.0.0/24**
-
-1. Click **OK**.
 
 1. Click **Next: Management >**.
 
@@ -271,7 +277,8 @@ The main tasks for this exercise are as follows:
 
     - Subnet Name: **subnet0**
 
-       > **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+
+> **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
 
 
 > **Result**: After you completed this exercise, you have deployed an Azure VM running Windows Server 2016 Datacenter into an availability set by using the Azure portal, deployed another Azure VM running Windows Server 2016 Datacenter into the same availability set by using Azure PowerShell, and deployed two Azure VMs running Linux Ubuntu into an availability set by using an Azure Resource Manager template.
@@ -442,7 +449,7 @@ The main tasks for this exercise are as follows:
 
     - Subscription: the name of the subscription you are using in this lab
 
-    - Resource group: the name of a new resource group **az1000303-RG**
+    - Resource group: Click **Create new**, set the name to **az1000303-RG** and then click **OK**.
 
     - Virtual machine scale set name: **az1000303vmss0**
 
@@ -470,7 +477,9 @@ The main tasks for this exercise are as follows:
 
 1. Click **Next : Networking &gt;**, and on the **Networking** tab use the following settings:
 
-    - Virtual network: Create a new virtual network: **az1000303-vnet0**, use the following settings, and then click **OK**:
+    - Virtual network: Click **Create new**, use the following settings, and then click **OK**:
+
+        - Name: **az1000303-vnet0**
 
         - Resource group: **az1000303-RG**
 
@@ -480,7 +489,7 @@ The main tasks for this exercise are as follows:
 
         - Subnet address range: **10.203.0.0/24**
 
-    - Click the **edit icon** to the right of the Network interface **az1000303-vnet0-nic01**, use the following settings, and then click **OK**:
+    - Click the **edit icon** to the right of the Network interface **az1000303-vnet0-nic01**, use the following settings and then click **OK**:
 
        - Name: **az1000303-vnet0-nic01**
 
@@ -502,7 +511,7 @@ The main tasks for this exercise are as follows:
 
     - Load balancing options: **Azure load balancer**
 
-    - Select a load balancer: Create a new load balancer, use the following settings and then click **Create**:
+    - Select a load balancer: Click **Create new**, use the following settings and then click **Create**:
 
        - Name: **az1000303vmss0-lb**
 
@@ -545,7 +554,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **az1000303vmss0** blade, display its **Extensions** blade.
 
-1. From the **az1000303vmss0 \| Extensions** blade, add the **PowerShell Desired State Configuration** extension with the following settings, and click **OK**:
+1. From the **az1000303vmss0 - Extensions** blade, add the **PowerShell Desired State Configuration** extension with the following settings, and click **OK**:
 
     - Configuration Modules or Script: Browse to **Labfiles\\Module_02\\Deploy_and_Manage_Virtual_Machines\\az-100-03_install_iis_vmss.zip** and click **Open**
 
@@ -563,7 +572,7 @@ The main tasks for this exercise are as follows:
 
     - Auto Upgrade Minor Version: **Yes**
 
-1. Navigate to the **az1000303vmss0 \| Instances** blade, select the checkbox for **az1000303vmss0_0**, and then click on **Upgrade** to initiate the upgrade. Click **Yes**.
+1. Navigate to the **az1000303vmss0 - Instances** blade, select the checkbox for **az1000303vmss0_0**, and then click on **Upgrade** to initiate the upgrade. Click **Yes**.
 
     > **Note**: The update will trigger application of the DSC configuration script. Wait for upgrade to complete. This should take about 5 minutes. You can monitor the progress from the **az1000303vmss0 - Instances** blade by clicking **Refresh** in the action bar and wait for the Status to change back to **Running**.
 
