@@ -212,11 +212,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 4: Copy a container and blobs between Azure Storage accounts
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell pane.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell pane.
 
     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
-
-1. At the Cloud Shell interface, select **PowerShell**, if needed.
 
 1. In the Cloud Shell pane, run the following commands:
 
