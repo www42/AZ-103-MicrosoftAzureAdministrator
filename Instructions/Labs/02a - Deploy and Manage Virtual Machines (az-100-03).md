@@ -584,6 +584,7 @@ The main tasks for this exercise are as follows:
 
 1. Verify that the browser displays the default IIS home page.
 
+
 > **Result**: After you completed this exercise, you have identified an available DNS name for an Azure VM scale set deployment, deployed an Azure VM scale set, and installed IIS on a scale set VM by using the DSC extension.
 
 
