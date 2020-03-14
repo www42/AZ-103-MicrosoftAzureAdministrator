@@ -62,7 +62,7 @@ The main tasks for this exercise are as follows:
 
     - Name: any unique, valid DNS domain name in the **.com** namespace
 
-    - Resource group location: **East US** (or a supported region near you)
+    - Resource group location: **(US) East US** (or a supported region near you)
 
 
 #### Task 2: Create a DNS record in the public DNS zone
@@ -73,11 +73,11 @@ The main tasks for this exercise are as follows:
    Invoke-RestMethod http://ipinfo.io/json | Select-Object -ExpandProperty IP
    ```
 
-   > **Note**: Take a note of this IP address. You will use it later in this task.
+    > **Note**: Take a note of this IP address. You will use it later in this task.
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
 1. In the Cloud Shell pane, run the following in order to create a public IP address resource:
 
@@ -130,7 +130,7 @@ The main tasks for this exercise are as follows:
 
 1. On the DNS zone blade, note the list of the name servers that host the zone you created. You will use the first of them named in the next step.
 
-1. From the lab virtual machine, start Command Prompt and run the following to validate the name resolution of the two newly created DNS records (where &lt;custom_DNS_domain&gt; represents the custom DNS domain you created in the first task of this exercise and &lt;name_server&gt; represents the name of the DNS name server you identified in the previous step):
+1. From the lab virtual machine, start Command Prompt and run the following to validate the name resolution of the two newly created DNS records (where ***&lt;custom_DNS_domain&gt;*** represents the custom DNS domain you created in the first task of this exercise and ***&lt;name_server&gt;*** represents the name of the DNS name server you identified in the previous step):
 
    ```
    nslookup mylabvmpip.<custom_DNS_domain> <name_server>
@@ -141,6 +141,7 @@ The main tasks for this exercise are as follows:
 1. Verify that the IP addresses returned match those you identified earlier in this task.
 
 > **Result**: After you completed this exercise, you have created a public DNS zone, created a DNS record in the public DNS zone, and validated Azure DNS-based name resolution for the public domain.
+
 
 
 ### Exercise 2: Configure Azure DNS for private domains
@@ -179,6 +180,7 @@ The main tasks for this exercise are as follows:
 
    $vnet2 = New-AzVirtualNetwork -ResourceGroupName $rg2.ResourceGroupName -Location $rg2.Location -Name az1000402b-vnet2 -AddressPrefix 10.204.0.0/16 -Subnet $subnet2
    ```
+
 
 #### Task 2: Create a private DNS zone
 
@@ -222,7 +224,7 @@ The main tasks for this exercise are as follows:
    New-AzResourceGroupDeployment -ResourceGroupName $rg2.ResourceGroupName -TemplateFile "./az-100-04b_02_azuredeploy.json" -TemplateParameterFile "./az-100-04_azuredeploy.parameters.json" -AsJob
    ```
 
-   > **Note**: Wait for both deployments to complete before you proceed to the next task. You can identify the state of the jobs by running the `Get-Job` cmdlet in the Cloud Shell pane.
+> **Note**: Wait for both deployments to complete before you proceed to the next task. You can identify the state of the jobs by running the `Get-Job` cmdlet in the Cloud Shell pane.
 
 
 #### Task 4: Validate Azure DNS-based name reservation and resolution for the private domain
@@ -260,6 +262,8 @@ The main tasks for this exercise are as follows:
 1. Verify that the name is successfully resolved.
 
 > **Result**: After completing this exercise, you have provisioned a multi-virtual network environment, created a private DNS zone, deployed Azure VMs into virtual networks, and validated Azure DNS-based name reservation and resolution for the private domain
+
+
 
 ## Exercise 3: Remove lab resources
 
