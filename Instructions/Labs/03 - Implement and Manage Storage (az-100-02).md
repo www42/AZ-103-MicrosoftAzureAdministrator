@@ -216,7 +216,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Cloud Shell pane, run the following commands:
 
-   ```pwsh
+   ```powershell
    $containerName = 'az1000202-container'
    $storageAccount1Name = (Get-AzStorageAccount -ResourceGroupName 'az1000202-RG')[0].StorageAccountName
    $storageAccount2Name = (Get-AzStorageAccount -ResourceGroupName 'az1000203-RG')[0].StorageAccountName
@@ -229,14 +229,14 @@ The main tasks for this exercise are as follows:
 
 1. In the Cloud Shell pane, run the following command:
 
-   ```pwsh
+   ```powershell
    New-AzStorageContainer -Name $containerName -Context $context2 -Permission Off
    ```
    > **Note**: This command creates a new container with the matching name in the second storage account
 
 1. In the Cloud Shell pane, run the following commands:
 
-   ```pwsh
+   ```powershell
    $containerToken1 = New-AzStorageContainerSASToken -Context $context1 -ExpiryTime(get-date).AddHours(24) -FullUri -Name $containerName -Permission rwdl
    $containerToken2 = New-AzStorageContainerSASToken -Context $context2 -ExpiryTime(get-date).AddHours(24) -FullUri -Name $containerName -Permission rwdl
    ```
@@ -244,7 +244,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Cloud Shell pane, run the following command:
 
-   ```pwsh
+   ```powershell
    azcopy cp $containerToken1 $containerToken2 --recursive=true
    ```
 
