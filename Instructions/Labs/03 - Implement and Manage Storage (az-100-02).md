@@ -12,9 +12,9 @@ All tasks in this lab are performed from the Azure portal (including a PowerShel
 
 Lab files:
 
--  **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.json**
+ -  **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.json**
 
--  **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.parameters.json**
+ -  **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.parameters.json**
 
 ### Scenario
 
@@ -24,18 +24,18 @@ Adatum Corporation wants to leverage Azure Storage for hosting its data
 
 After completing this lab, you will be able to:
 
--  Deploy an Azure VM by using an Azure Resource Manager template
+ -  Deploy an Azure VM by using an Azure Resource Manager template
 
--  Implement and use Azure Blob Storage
+ -  Implement and use Azure Blob Storage
 
--  Implement and use Azure File Storage
+ -  Implement and use Azure File Storage
 
 
 ### Exercise 0: Prepare the lab environment
 
 The main tasks for this exercise are as follows:
 
-1. Deploy an Azure VM by using an Azure Resource Manager template
+ 1. Deploy an Azure VM by using an Azure Resource Manager template
 
 
 #### Task 1: Deploy an Azure VM by using an Azure Resource Manager template
@@ -49,11 +49,11 @@ The main tasks for this exercise are as follows:
 1. From the blade displaying the properties of your subscription, navigate to its **Resource providers** blade.
 
 1. On the **Resource providers** blade, register the following resource providers (if these resource providers have not been yet registered):
-- Microsoft.Network
-- Microsoft.Compute
-- Microsoft.Storage
+    - Microsoft.Network
+    - Microsoft.Compute
+    - Microsoft.Storage
 
-**Note:** This step registers the Azure Resource Manager Microsoft.Network, Microsoft.Compute, and Microsoft.Storage resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
+    **Note:** This step registers the Azure Resource Manager Microsoft.Network, Microsoft.Compute, and Microsoft.Storage resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
 
 1. In the Azure portal, navigate to the **New** blade.
 
@@ -65,7 +65,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.json**.
 
-   > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter.
+    > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -93,35 +93,37 @@ The main tasks for this exercise are as follows:
 
     - Virtual Network Name: **az1000201-vnet1**
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-   > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine **az1000201-vm1** in the second exercise of this lab.
+> **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine **az1000201-vm1** in the second exercise of this lab.
+
 
 > **Result**: After you completed this exercise, you have initiated template deployment of an Azure VM **az1000201-vm1** that you will use in the second exercise of this lab.
+
 
 
 ### Exercise 1: Implement and use Azure Blob Storage
 
 The main tasks for this exercise are as follows:
 
-1. Create Azure Storage accounts
+ 1. Create Azure Storage accounts
 
-1. Review configuration settings of Azure Storage accounts
+ 1. Review configuration settings of Azure Storage accounts
 
-1. Manage Azure Storage Blob Service
+ 1. Manage Azure Storage Blob Service
 
-1. Copy a container and blobs between Azure Storage accounts
+ 1. Copy a container and blobs between Azure Storage accounts
 
-1. Use a Shared Access Signature (SAS) key to access a blob
+ 1. Use a Shared Access Signature (SAS) key to access a blob
 
 
 #### Task 1: Create Azure Storage accounts
 
 1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Storage account**.
+1. From the **New** blade, search Azure Marketplace for **Storage account - blob, file, table, queue**.
 
-1. Use the list of search results to navigate to the **Create storage account** blade.
+1. Use the list of search results to navigate to the **Create storage account - blob, file, table, queue** blade.
 
 1. From the **Create storage account** blade, create a new storage account with the following settings:
 
@@ -145,9 +147,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **New** blade, search Azure Marketplace for **Storage account**.
+1. From the **New** blade, search Azure Marketplace for **Storage account - blob, file, table, queue**.
 
-1. Use the list of search results to navigate to the **Create storage account** blade.
+1. Use the list of search results to navigate to the **Create storage account - blob, file, table, queue** blade.
 
 1. From the **Create storage account** blade, create a new storage account with the following settings:
 
@@ -163,9 +165,9 @@ The main tasks for this exercise are as follows:
 
     - Account kind: **StorageV2 (general purpose v2)**
 
-    - Access tier: **Hot**
-
     - Replication: **Geo-redundant storage (GRS)**
+    
+    - Access tier (default): **Hot**
 
 1. Click **Review + create**, then click **Create**.
 
@@ -186,7 +188,7 @@ The main tasks for this exercise are as follows:
 
 1. Display the **Encryption** blade of the storage account. Note that encryption is enabled by default and that you have the option of using your own key.
 
-   > **Note**: Do not change the configuration of the storage account.
+    > **Note**: Do not change the configuration of the storage account.
 
 1. In Azure Portal, navigate to the blade of the second storage account you created.
 
@@ -212,7 +214,9 @@ The main tasks for this exercise are as follows:
 
 1. From the Azure Portal, start a PowerShell session in the Cloud Shell pane.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+
+1. At the Cloud Shell interface, select **PowerShell**, if needed.
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -225,14 +229,16 @@ The main tasks for this exercise are as follows:
    $context1 = New-AzStorageContext -StorageAccountName $storageAccount1Name -StorageAccountKey $storageAccount1Key1
    $context2 = New-AzStorageContext -StorageAccountName $storageAccount2Name -StorageAccountKey $storageAccount2Key1
    ```
-   > **Note**: These commands set the values of variables representing the names of the blob container containing the blobs you uploaded in the previous task, the two storage accounts, their corresponding keys, and the corresponding security context for each. You will use these values to generate a SAS token to copy blobs between storage accounts by using the AZCopy command line utility.
+
+    > **Note**: These commands set the values of variables representing the names of the blob container containing the blobs you uploaded in the previous task, the two storage accounts, their corresponding keys, and the corresponding security context for each. You will use these values to generate a SAS token to copy blobs between storage accounts by using the AZCopy command line utility.
 
 1. In the Cloud Shell pane, run the following command:
 
    ```powershell
    New-AzStorageContainer -Name $containerName -Context $context2 -Permission Off
    ```
-   > **Note**: This command creates a new container with the matching name in the second storage account
+
+    > **Note**: This command creates a new container with the matching name in the second storage account
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -240,7 +246,8 @@ The main tasks for this exercise are as follows:
    $containerToken1 = New-AzStorageContainerSASToken -Context $context1 -ExpiryTime(get-date).AddHours(24) -FullUri -Name $containerName -Permission rwdl
    $containerToken2 = New-AzStorageContainerSASToken -Context $context2 -ExpiryTime(get-date).AddHours(24) -FullUri -Name $containerName -Permission rwdl
    ```
-   > **Note**: These commands generate SAS keys that you will use in the next step to copy blobs between two containers.
+
+    > **Note**: These commands generate SAS keys that you will use in the next step to copy blobs between two containers.
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -248,7 +255,7 @@ The main tasks for this exercise are as follows:
    azcopy cp $containerToken1 $containerToken2 --recursive=true
    ```
 
-   > **Note**: This command uses the AzCopy utility to copy the content of the container between the two storage accounts.
+    > **Note**: This command uses the AzCopy utility to copy the content of the container between the two storage accounts.
 
 1. Verify that the command returned the results confirming that the two files were transferred.
 
@@ -263,7 +270,7 @@ The main tasks for this exercise are as follows:
 
 1. Open another Microsoft Edge window and navigate to the URL you copied in the previous step.
 
-   > **Note**: The browser will display the **ResourceNotFound**. This is expected since the container has the **Public access level** set to **Private (no anonymous access)**.
+    > **Note**: The browser will display the **ResourceNotFound**. This is expected since the container has the **Public access level** set to **Private (no anonymous access)**.
 
 1. On the **az-100-02_azuredeploy.json** blade, generate a shared access signature (SAS) and the corresponding URL with the following settings:
 
@@ -283,20 +290,22 @@ The main tasks for this exercise are as follows:
 
 1. From the previously opened Microsoft Edge window, navigate to the URL you copied in the previous step.
 
-   > **Note**: This time, you will be prompted whether you want to open or save **az-100-02_azuredeploy.json**. This is expected as well, since this time you are no longer accessing the container anonymously, but instead you are using the newly generated SAS key, which is valid for the next 24 hours.
+    > **Note**: This time, you will be prompted whether you want to open or save **az-100-02_azuredeploy.json**. This is expected as well, since this time you are no longer accessing the container anonymously, but instead you are using the newly generated SAS key, which is valid for the next 24 hours.
 
 1. Close the Microsoft Edge window displaying the prompt.
 
+
 > **Result**: After you completed this exercise, you have created two Azure Storage accounts, reviewed their configuration settings, created a blob container, uploaded blobs into the container, copied the container and blobs between the storage accounts, and used a SAS key to access one of the blobs.
+
 
 
 ### Exercise 2: Implement and use Azure File Storage
 
 The main tasks for this exercise are as follows:
 
-1. Create an Azure File Service share
+ 1. Create an Azure File Service share
 
-1. Map a drive to the Azure File Service share from an Azure VM
+ 1. Map a drive to the Azure File Service share from an Azure VM
 
 
 #### Task 1: Create an Azure File Service share
@@ -332,15 +341,15 @@ The main tasks for this exercise are as follows:
 
 1. From the Windows PowerShell ISE session, open the script pane and paste into it the content of your local Clipboard.
 
-1. Paste the script into the PowerShell ISE session, execute the script, and verify that its output confirms successful mapping of the Z: drive to the Azure Storage File Service share.
+1. Execute the script, and verify that its output confirms successful mapping of the Z: drive to the Azure Storage File Service share.
 
-1. Right click the Start menu, click **Run**, in the **Open** dialog box type **Z:** and press the **Enter** key. This will open a File Explorer window displaying the content of the **Z:** drive.
+1. Right click the Start menu, click **Run**, in the **Open** dialog box type **Z:** and press the **Enter** key. This will open a File Explorer window displaying the contents of the **Z:** drive.
 
 1. In the File Explorer window, create a folder named **Folder1** on the Z: drive.
 
 1. In the File Explorer window, navigate to **Folder1** and create a text document named **File1.txt**.
 
-   > **Note**: Make sure that you take into account the default configuration of File Explorer that does not display known file extensions in order to avoid creating a file named **File1.txt.txt**.
+    > **Note**: Make sure that you take into account the default configuration of File Explorer that does not display known file extensions in order to avoid creating a file named **File1.txt.txt**.
 
 1. From the PowerShell prompt, enter **Z:** to change the directory context to the mapped drive.
 
@@ -348,7 +357,10 @@ The main tasks for this exercise are as follows:
 
 1. From the PowerShell prompt, enter **cd Folder1** to change directories to the folder. Run the **dir** command again to list the file contents.
 
+
 > **Result**: After you completed this exercise, you have created an Azure File Service share, mapped a drive to the file share from an Azure VM, and used File Explorer from the Azure VM to create a folder and a file in the file share.
+
+
 
 ## Exercise 3: Remove lab resources
 
