@@ -128,7 +128,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Azure Portal, start a PowerShell session in the Cloud Shell pane.
 
-    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -137,7 +137,7 @@ The main tasks for this exercise are as follows:
    $vmSize = 'Standard_DS2_v2'
    ```
 
-    > **Note**: This sets the values of variables designating the Azure VM name and its size
+     > **Note**: This sets the values of variables designating the Azure VM name and its size
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -146,7 +146,7 @@ The main tasks for this exercise are as follows:
    $location = $resourceGroup.Location
    ```
 
-    > **Note**: These commands set the values of variables designating the target resource group and its location
+     > **Note**: These commands set the values of variables designating the target resource group and its location
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
    $subnetid = (Get-AzVirtualNetworkSubnetConfig -Name 'subnet0' -VirtualNetwork $vnet).Id
    ```
 
-    > **Note**: These commands set the values of variables designating the availability set, virtual network, and subnet into which you will deploy the new Azure VM
+     > **Note**: These commands set the values of variables designating the availability set, virtual network, and subnet into which you will deploy the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -166,7 +166,7 @@ The main tasks for this exercise are as follows:
    $nic = New-AzNetworkInterface -Name "$($vmName)$(Get-Random)" -ResourceGroupName $resourceGroup.ResourceGroupName -Location $location -SubnetId $subnetid -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
    ```
 
-    > **Note**: These commands create a new network security group, public IP address, and network interface that will be used by the new Azure VM
+     > **Note**: These commands create a new network security group, public IP address, and network interface that will be used by the new Azure VM
 
 
     > **Note**: You will configure the network security group you create in this task in the second exercise of this lab
@@ -179,7 +179,7 @@ The main tasks for this exercise are as follows:
    $adminCreds = New-Object PSCredential $adminUsername, ($adminPassword | ConvertTo-SecureString -AsPlainText -Force)
    ```
 
-    > **Note**: These commands set the values of variables designating credentials of the local Administrator account of the new Azure VM
+     > **Note**: These commands set the values of variables designating credentials of the local Administrator account of the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -189,7 +189,7 @@ The main tasks for this exercise are as follows:
    $skuName = '2016-Datacenter'
    ```
 
-    > **Note**: These commands set the values of variables designating the properties of the Azure Marketplace image that will be used to provision the new Azure VM
+     > **Note**: These commands set the values of variables designating the properties of the Azure Marketplace image that will be used to provision the new Azure VM
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -197,7 +197,7 @@ The main tasks for this exercise are as follows:
    $osDiskType = (Get-AzDisk -ResourceGroupName $resourceGroup.ResourceGroupName)[0].Sku.Name
    ```
 
-    > **Note**: This command sets the values of a variable designating the operating system disk type of the new Azure VM
+     > **Note**: This command sets the values of a variable designating the operating system disk type of the new Azure VM
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -210,7 +210,7 @@ The main tasks for this exercise are as follows:
    Set-AzVMBootDiagnostic -VM $vmConfig -Disable
    ```
 
-    > **Note**: These commands set up the properties of the Azure VM configuration object that will be used to provision the new Azure VM, including the VM size, its availability set, network interface, computer name, local Administrator credentials, the source image, the operating system disk, and boot diagnostics settings.
+     > **Note**: These commands set up the properties of the Azure VM configuration object that will be used to provision the new Azure VM, including the VM size, its availability set, network interface, computer name, local Administrator credentials, the source image, the operating system disk, and boot diagnostics settings.
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -218,7 +218,7 @@ The main tasks for this exercise are as follows:
    New-AzVM -ResourceGroupName $resourceGroup.ResourceGroupName -Location $location -VM $vmConfig
    ```
 
-    > **Note**: This command initiates deployment of the new Azure VM
+     > **Note**: This command initiates deployment of the new Azure VM
 
 > **Note**: Do not wait for the deployment to complete but instead proceed to the next task.
 
@@ -235,7 +235,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **Labfiles\\Module_02\\Deploy_and_Manage_Virtual_Machines\\az-100-03_azuredeploy.json**.
 
-    > **Note**: Review the content of the template and note that it defines deployment of two Azure VMs hosting Linux Ubuntu into an availability set and into the existing virtual network **az1000301-vnet0**. This virtual network does not exist in your deployment. You will be changing the virtual network name in the parameters below.
+     > **Note**: Review the content of the template and note that it defines deployment of two Azure VMs hosting Linux Ubuntu into an availability set and into the existing virtual network **az1000301-vnet0**. This virtual network does not exist in your deployment. You will be changing the virtual network name in the parameters below.
 
 1. **Save** the template and return to the **Custom deployment** blade.
 
@@ -310,7 +310,7 @@ The main tasks for this exercise are as follows:
 
 1. Change the assignment of the public IP address to **Static**, and then click **Save**.
 
-    > **Note**: Take a note of the public IP address assigned to the network interface of **az1000301-vm0**. You will need it later in this exercise.
+     > **Note**: Take a note of the public IP address assigned to the network interface of **az1000301-vm0**. You will need it later in this exercise.
 
 1. In the Azure portal, navigate to the **az1000302-vm0** blade.
 
@@ -322,10 +322,10 @@ The main tasks for this exercise are as follows:
 
 1. On the **IP configurations** blade, configure the **ipconfig1** private IP address to be static and set it to **10.103.0.100**, and then click **Save**.
 
-    > **Note**: Changing the private IP address assignment requires restarting the Azure VM.
+     > **Note**: Changing the private IP address assignment requires restarting the Azure VM.
 
 
-    > **Note**: It is possible to connect to Azure VMs via either statically or dynamically assigned public and private IP addresses. Choosing static IP assignment is commonly done in scenarios where these IP addresses are used in combination with IP filtering, routing, or if they are assigned to network interfaces of Azure VMs that function as DNS servers.
+     > **Note**: It is possible to connect to Azure VMs via either statically or dynamically assigned public and private IP addresses. Choosing static IP assignment is commonly done in scenarios where these IP addresses are used in combination with IP filtering, routing, or if they are assigned to network interfaces of Azure VMs that function as DNS servers.
 
 
 #### Task 2: Connect to an Azure VM running Windows Server 2016 Datacenter via a public IP address
@@ -336,7 +336,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az1000301-vm0 - Networking** blade, review the inbound port rules of the network security group assigned to the network interface of **az1000301-vm0**.
 
-    > **Note**: The default configuration consisting of built-in rules block inbound connections from the internet (including connections via the RDP port TCP 3389)
+     > **Note**: The default configuration consisting of built-in rules block inbound connections from the internet (including connections via the RDP port TCP 3389)
 
 1. Click **Add inbound port rule** to add an inbound security rule to the existing network security group with the following settings:
 
@@ -379,7 +379,7 @@ The main tasks for this exercise are as follows:
 
 1. Examine the output and note that the name resolves to the IP address you assigned in the first task of this exercise (**10.103.0.100**).
 
-    > **Note**: This is expected. Azure provides built-in DNS name resolution within a virtual network.
+     > **Note**: This is expected. Azure provides built-in DNS name resolution within a virtual network.
 
 1. Within the RDP session to **az1000301-vm0**, from Server Manager, click **Local Server**, then disable **IE Enhanced Security Configuration**.
 
@@ -393,7 +393,7 @@ The main tasks for this exercise are as follows:
 
     - Password: **Pa55w.rd1234**
 
-    > **Note**: Both the username and password are case sensitive.
+     > **Note**: Both the username and password are case sensitive.
 
 1. Once you successfully authenticated, terminate the RDP session to **az1000301-vm0**.
 
@@ -403,7 +403,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az1000302-vm0 - Networking** blade, review the inbound port rules of the network security group assigned to the network interface of **az1000302-vm0** to determine why your SSH connection via the private IP address was successsful.
 
-    > **Note**: The default configuration consisting of built-in rules allows inbound connections within the Azure virtual network environment (including connections via the SSH port TCP 22).
+     > **Note**: The default configuration consisting of built-in rules allows inbound connections within the Azure virtual network environment (including connections via the SSH port TCP 22).
 
 
 > **Result**: After you completed this exercise, you have configured static private and public IP addresses of Azure VMs, connected to an Azure VM running Windows Server 2016 Datacenter via a public IP address, and connect to an Azure VM running Linux Ubuntu Server via a private IP address
@@ -545,7 +545,7 @@ The main tasks for this exercise are as follows:
 
 1. Click **Review + Create** and then click **Create**.
 
-    > **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
+> **Note**: Wait for the deployment to complete before you proceed to the next task. This should take about 5 minutes.
 
 
 #### Task 3: Install IIS on a scale set VM by using DSC extensions
@@ -574,7 +574,7 @@ The main tasks for this exercise are as follows:
 
 1. Navigate to the **az1000303vmss0 - Instances** blade, select the checkbox for **az1000303vmss0_0**, and then click on **Upgrade** to initiate the upgrade. Click **Yes**.
 
-    > **Note**: The update will trigger application of the DSC configuration script. Wait for upgrade to complete. This should take about 5 minutes. You can monitor the progress from the **az1000303vmss0 - Instances** blade by clicking **Refresh** in the action bar and wait for the Status to change back to **Running**.
+     > **Note**: The update will trigger application of the DSC configuration script. Wait for upgrade to complete. This should take about 5 minutes. You can monitor the progress from the **az1000303vmss0 - Instances** blade by clicking **Refresh** in the action bar and wait for the Status to change back to **Running**.
 
 1. Once the upgrade completes, navigate to the **Overview** blade.
 
@@ -618,5 +618,6 @@ The main tasks for this exercise are as follows:
     > **Note**: You might have to rerun the command if the resources are not deleted after the first run.
 
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
 
 > **Result**: In this exercise, you removed the resources used in this lab.
