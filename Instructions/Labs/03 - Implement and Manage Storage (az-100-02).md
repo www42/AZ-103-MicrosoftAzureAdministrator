@@ -53,7 +53,7 @@ The main tasks for this exercise are as follows:
     - Microsoft.Compute
     - Microsoft.Storage
 
-    **Note:** This step registers the Azure Resource Manager Microsoft.Network, Microsoft.Compute, and Microsoft.Storage resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
+     **Note:** This step registers the Azure Resource Manager Microsoft.Network, Microsoft.Compute, and Microsoft.Storage resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
 
 1. In the Azure portal, navigate to the **New** blade.
 
@@ -65,7 +65,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **Labfiles\\Module_03\\Implement_and_Manage_Storage\\az-100-02_azuredeploy.json**.
 
-    > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter.
+     > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -93,7 +93,7 @@ The main tasks for this exercise are as follows:
 
     - Virtual Network Name: **az1000201-vnet1**
 
-    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+     > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
 > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine **az1000201-vm1** in the second exercise of this lab.
 
@@ -188,7 +188,7 @@ The main tasks for this exercise are as follows:
 
 1. Display the **Encryption** blade of the storage account. Note that encryption is enabled by default and that you have the option of using your own key.
 
-    > **Note**: Do not change the configuration of the storage account.
+     > **Note**: Do not change the configuration of the storage account.
 
 1. In Azure Portal, navigate to the blade of the second storage account you created.
 
@@ -214,7 +214,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell pane.
 
-    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -228,7 +228,7 @@ The main tasks for this exercise are as follows:
    $context2 = New-AzStorageContext -StorageAccountName $storageAccount2Name -StorageAccountKey $storageAccount2Key1
    ```
 
-    > **Note**: These commands set the values of variables representing the names of the blob container containing the blobs you uploaded in the previous task, the two storage accounts, their corresponding keys, and the corresponding security context for each. You will use these values to generate a SAS token to copy blobs between storage accounts by using the AZCopy command line utility.
+     > **Note**: These commands set the values of variables representing the names of the blob container containing the blobs you uploaded in the previous task, the two storage accounts, their corresponding keys, and the corresponding security context for each. You will use these values to generate a SAS token to copy blobs between storage accounts by using the AZCopy command line utility.
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -236,7 +236,7 @@ The main tasks for this exercise are as follows:
    New-AzStorageContainer -Name $containerName -Context $context2 -Permission Off
    ```
 
-    > **Note**: This command creates a new container with the matching name in the second storage account
+     > **Note**: This command creates a new container with the matching name in the second storage account
 
 1. In the Cloud Shell pane, run the following commands:
 
@@ -245,7 +245,7 @@ The main tasks for this exercise are as follows:
    $containerToken2 = New-AzStorageContainerSASToken -Context $context2 -ExpiryTime(get-date).AddHours(24) -FullUri -Name $containerName -Permission rwdl
    ```
 
-    > **Note**: These commands generate SAS keys that you will use in the next step to copy blobs between two containers.
+     > **Note**: These commands generate SAS keys that you will use in the next step to copy blobs between two containers.
 
 1. In the Cloud Shell pane, run the following command:
 
@@ -253,7 +253,7 @@ The main tasks for this exercise are as follows:
    azcopy cp $containerToken1 $containerToken2 --recursive=true
    ```
 
-    > **Note**: This command uses the AzCopy utility to copy the content of the container between the two storage accounts.
+     > **Note**: This command uses the AzCopy utility to copy the content of the container between the two storage accounts.
 
 1. Verify that the command returned the results confirming that the two files were transferred.
 
@@ -268,7 +268,7 @@ The main tasks for this exercise are as follows:
 
 1. Open another Microsoft Edge window and navigate to the URL you copied in the previous step.
 
-    > **Note**: The browser will display the **ResourceNotFound**. This is expected since the container has the **Public access level** set to **Private (no anonymous access)**.
+     > **Note**: The browser will display the **ResourceNotFound**. This is expected since the container has the **Public access level** set to **Private (no anonymous access)**.
 
 1. On the **az-100-02_azuredeploy.json** blade, generate a shared access signature (SAS) and the corresponding URL with the following settings:
 
@@ -288,7 +288,7 @@ The main tasks for this exercise are as follows:
 
 1. From the previously opened Microsoft Edge window, navigate to the URL you copied in the previous step.
 
-    > **Note**: This time, you will be prompted whether you want to open or save **az-100-02_azuredeploy.json**. This is expected as well, since this time you are no longer accessing the container anonymously, but instead you are using the newly generated SAS key, which is valid for the next 24 hours.
+     > **Note**: This time, you will be prompted whether you want to open or save **az-100-02_azuredeploy.json**. This is expected as well, since this time you are no longer accessing the container anonymously, but instead you are using the newly generated SAS key, which is valid for the next 24 hours.
 
 1. Close the Microsoft Edge window displaying the prompt.
 
@@ -347,7 +347,7 @@ The main tasks for this exercise are as follows:
 
 1. In the File Explorer window, navigate to **Folder1** and create a text document named **File1.txt**.
 
-    > **Note**: Make sure that you take into account the default configuration of File Explorer that does not display known file extensions in order to avoid creating a file named **File1.txt.txt**.
+     > **Note**: Make sure that you take into account the default configuration of File Explorer that does not display known file extensions in order to avoid creating a file named **File1.txt.txt**.
 
 1. From the PowerShell prompt, enter **Z:** to change the directory context to the mapped drive.
 
