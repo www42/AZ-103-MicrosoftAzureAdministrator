@@ -534,7 +534,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az1010301w-lb** blade, identify the public IP address assigned to the load balancer frontend.
 
-1. From the lab virtual machine, run the following command, after replacing the &lt;az1010301w-lb_public_IP&lt; placeholder with the IP address you identified in the previous task:
+1. From the lab virtual machine, run the following command, after replacing the ***&lt;az1010301w-lb_public_IP&gt;*** placeholder with the IP address you identified in the previous task:
 
    ```
    mstsc /v:<az1010301w-lb_public_IP>:33890
@@ -559,6 +559,7 @@ The main tasks for this exercise are as follows:
    > **Note**: Repeat the same tests for the second region.
 
 > **Result**: After you completed this exercise, you have implemented load balancing rules and NAT rules of Azure in two Azure regions and verified load balancing rules and NAT rules of Azure load balancers in the first region.
+
 
 
 ### Exercise 2: Implement Azure Traffic Manager load balancing
@@ -666,7 +667,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**:  If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
-1. In the Cloud Shell pane, run the following command, replacing the &lt;TM_DNS_name&lt; placeholder with the value of the DNS name assigned to the Traffic Manager profile you identified in the previous task:
+1. In the Cloud Shell pane, run the following command, replacing the ***&lt;TM_DNS_name&gt;*** placeholder with the value of the DNS name assigned to the Traffic Manager profile you identified in the previous task:
 
    ```
    nslookup <TM_DNS_name>
@@ -683,7 +684,10 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have implemented and verified Azure Traffic Manager load balancing
 
+
+
 ## Exercise 3: Remove lab resources
+
 
 #### Task 1: Open Cloud Shell
 
@@ -698,6 +702,7 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
 
 #### Task 2: Delete resource groups
 
