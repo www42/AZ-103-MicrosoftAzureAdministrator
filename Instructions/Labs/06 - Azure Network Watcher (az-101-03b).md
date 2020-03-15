@@ -101,7 +101,7 @@ The main tasks for this exercise are as follows:
 
     - Sku Tier: **Basic**
 
-         > **Note**: To identify VM sizes available in your subscription in a given region, run the following from Cloud Shell and review the values in the **Restriction** column (where ***&lt;location&gt;*** represents the target Azure region):
+     > **Note**: To identify VM sizes available in your subscription in a given region, run the following from Cloud Shell and review the values in the **Restriction** column (where ***&lt;location&gt;*** represents the target Azure region):
 
      ```powershell
      Get-AzComputeResourceSku | where {$_.Locations -icontains "<location>"} | Where-Object {($_.ResourceType -ilike "virtualMachines")}
@@ -113,7 +113,7 @@ The main tasks for this exercise are as follows:
      Get-AzSqlCapability -LocationName <regionname>
      ```
 
-> **Note**: Do not wait for the deployment to complete but proceed to the next step.
+ > **Note**: Do not wait for the deployment to complete but proceed to the next step.
 
 1. In the Azure portal, navigate to the **New** blade.
 
