@@ -87,7 +87,7 @@ The main tasks for this exercise are as follows:
 
     - Image SKU: **2016-Datacenter**
 
-    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations
+    - Vm Size: use **Standard_DS2_v2**
 
     - Virtual Network Name: **az1010301-vnet**
 
@@ -107,7 +107,7 @@ The main tasks for this exercise are as follows:
 
     - Configuration Function: **ContosoWebsite.ps1\\ContosoWebsite**
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
    > **Note**: Do not wait for the deployment to complete but proceed to the next task.
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
 
     - Image SKU: **2016-Datacenter**
 
-    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations
+    - Vm Size: use **Standard_DS2_v2**
 
     - Virtual Network Name: **az1010302-vnet**
 
