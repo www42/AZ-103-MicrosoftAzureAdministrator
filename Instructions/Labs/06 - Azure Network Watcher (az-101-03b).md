@@ -113,7 +113,7 @@ The main tasks for this exercise are as follows:
      Get-AzSqlCapability -LocationName <regionname>
      ```
 
-     > **Note**: Do not wait for the deployment to complete but proceed to the next step.
+> **Note**: Do not wait for the deployment to complete but proceed to the next step.
 
 1. In the Azure portal, navigate to the **New** blade.
 
@@ -168,7 +168,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Establish peering between Azure virtual networks
 
-     > **Note**: Before you start this task, ensure that the template deployment you started in the first task of this exercise has completed.
+> **Note**: Before you start this task, ensure that the template deployment you started in the first task of this exercise has completed.
 
 1. In the Azure portal, navigate to the **az1010301b-vnet1** virtual network blade.
 
