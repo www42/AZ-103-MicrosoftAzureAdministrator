@@ -155,7 +155,8 @@ The main tasks for this exercise are as follows:
 
      > **Note**: Make sure to choose a different Azure region for this deployment
 
-     > **Note**: Do not wait for the deployment to complete but proceed to the next step.
+
+> **Note**: Do not wait for the deployment to complete but proceed to the next step.
 
 
 #### Task 2: Enable Azure Network Watcher service
@@ -185,13 +186,18 @@ The main tasks for this exercise are as follows:
 
     - Name of peering from az1010302b-vnet2 to az1010301b-vnet1: **az1010302b-vnet2-to-az1010301b-vnet1**
 
-    - Allow virtual network access: **Enabled**
+    - Allow virtual network access from az1010301b-vnet1 to az1010302b-vnet2: **Enabled**
 
-    - Allow forwarded traffic: **disabled**
+    - Allow virtual network access from az1010302b-vnet2 to az1010301b-vnet1: **Enabled**
 
-    - Allow gateway transit: disabled
+    - Allow forwarded traffic from az1010302b-vnet2 to az1010301b-vnet1: **Disabled**
 
-     > **Note**: The Azure portal allows you to configure both directions of the peering simultaneously. When using other management tools, each direction must be configured independently.
+    - Allow forwarded traffic from az1010301b-vnet1 to az1010302b-vnet2: **Disabled**
+
+    - Allow gateway transit: **Disabled**
+
+ > **Note**: The Azure portal allows you to configure both directions of the peering simultaneously. When using other management tools, each direction must be configured independently.
+
 
 #### Task 4: Establish service endpoints to an Azure Storage account and Azure SQL Database instance
 
@@ -247,7 +253,11 @@ The main tasks for this exercise are as follows:
 
 1. From the **Firewalls and virtual networks** blade of the Azure SQL Database server, configure the following settings:
 
-    - Allow access to Azure services: **OFF**
+    - Deny public network access: **No**
+
+    - Connection policy: **Default**
+
+    - Allow Azure services and resources access to this server: **No**
 
     - No firewall rules configured
 
@@ -318,7 +328,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Test network connectivity to an Azure Storage account by using Network Watcher
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
      > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
@@ -370,7 +380,7 @@ The main tasks for this exercise are as follows:
 
     - Source IP address: **10.203.0.4**
 
-    - Destination IP address: the IP address of the blob service endpoint of the storage account you identified earlier in this task
+    - Destination IP address: the ***IP address*** of the blob service endpoint of the storage account you identified earlier in this task
 
 1. Verify that the result identifies the next hop type as **VirtualNetworkServiceEndpoint**
 
@@ -388,7 +398,7 @@ The main tasks for this exercise are as follows:
 
     - Destination: **Specify manually**
 
-        - URI, FQDN or IPv4: the IP address of the blob service endpoint of the storage account you identified earlier in this task
+        - URI, FQDN or IPv4: the ***IP address*** of the blob service endpoint of the storage account you identified earlier in this task
 
     - Probe Settings:
 
@@ -416,7 +426,7 @@ The main tasks for this exercise are as follows:
 
     - Source IP address: **10.203.16.4**
 
-    - Destination IP address: the IP address of the blob service endpoint of the storage account you identified earlier in this task
+    - Destination IP address: the ***IP address*** of the blob service endpoint of the storage account you identified earlier in this task
 
 1. Verify that the result identifies the next hop type as **Internet**
 
@@ -445,7 +455,7 @@ The main tasks for this exercise are as follows:
 
     - Destination: **Specify manually**
 
-        - URI, FQDN or IPv4: the IP address of the Azure SQL Database server you identified in the previous step of this task
+        - URI, FQDN or IPv4: the ***IP address*** of the Azure SQL Database server you identified in the previous step of this task
 
     - Probe Settings:
 
@@ -473,7 +483,7 @@ The main tasks for this exercise are as follows:
 
     - Source IP address: **10.203.0.4**
 
-    - Destination IP address: the IP address of the Azure SQL Database server you identified earlier in this task
+    - Destination IP address: the ***IP address*** of the Azure SQL Database server you identified earlier in this task
 
 1. Verify that the result identifies the next hop type as **VirtualNetworkServiceEndpoint**
 
@@ -491,7 +501,7 @@ The main tasks for this exercise are as follows:
 
     - Destination: **Specify manually**
 
-        - URI, FQDN or IPv4: the IP address of the Azure SQL Database server you identified earlier in this task
+        - URI, FQDN or IPv4: the ***IP address*** of the Azure SQL Database server you identified earlier in this task
 
     - Probe Settings:
 
@@ -519,7 +529,7 @@ The main tasks for this exercise are as follows:
 
     - Source IP address: **10.203.16.4**
 
-    - Destination IP address: the IP address of the Azure SQL Database server you identified earlier in this task
+    - Destination IP address: the ***IP address*** of the Azure SQL Database server you identified earlier in this task
 
 1. Verify that the result identifies the next hop type as **Internet**
 
