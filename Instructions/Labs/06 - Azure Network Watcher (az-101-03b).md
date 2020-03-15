@@ -113,7 +113,7 @@ The main tasks for this exercise are as follows:
      Get-AzSqlCapability -LocationName <regionname>
      ```
 
- > **Note**: Do not wait for the deployment to complete but proceed to the next step.
+     > **Note**: Do not wait for the deployment to complete but proceed to the next step.
 
 1. In the Azure portal, navigate to the **New** blade.
 
