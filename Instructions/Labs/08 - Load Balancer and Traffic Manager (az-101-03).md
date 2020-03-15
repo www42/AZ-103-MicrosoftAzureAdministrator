@@ -140,7 +140,7 @@ The main tasks for this exercise are as follows:
 
     - Resource group: the name of a new resource group **az1010302-RG**
 
-    - Location: the name of the Azure region different from the one you chose in the previous task and where you can provision Azure VMs
+    - Location: the name of the Azure region ***different from the one you chose in the previous task*** and where you can provision Azure VMs
 
     - Admin Username: **Student**
 
@@ -250,7 +250,7 @@ The main tasks for this exercise are as follows:
 
     - Network IP configuration: **az1010301w-nic1/ipconfig1 (10.101.31.5)**
 
-   > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
+    > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
 
    > **Note**: Wait for the operation to complete. This should take less than a minute.
 
@@ -351,7 +351,7 @@ The main tasks for this exercise are as follows:
 
     - Network IP configuration: **az1010302w-nic1/ipconfig1 (10.101.32.5)**
 
-   > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
+    > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
 
    > **Note**: Wait for the operation to complete. This should take less than a minute.
 
@@ -418,6 +418,8 @@ The main tasks for this exercise are as follows:
 
     - Protocol: **TCP**
 
+    - Idle timeout (minutes): **4**
+
     - Port: **33890**
 
     - Target virtual machine: **az1010301w-vm0**
@@ -443,6 +445,8 @@ The main tasks for this exercise are as follows:
     - Service: **Custom**
 
     - Protocol: **TCP**
+
+    - Idle timeout (minutes): **4**
 
     - Port: **33891**
 
@@ -477,6 +481,8 @@ The main tasks for this exercise are as follows:
 
     - Protocol: **TCP**
 
+    - Idle timeout (minutes): **4**
+
     - Port: **33890**
 
     - Target virtual machine: **az1010302w-vm0**
@@ -502,6 +508,8 @@ The main tasks for this exercise are as follows:
     - Service: **Custom**
 
     - Protocol: **TCP**
+
+    - Idle timeout (minutes): **4**
 
     - Port: **33891**
 
@@ -534,7 +542,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az1010301w-lb** blade, identify the public IP address assigned to the load balancer frontend.
 
-1. From the lab virtual machine, run the following command, after replacing the ***&lt;az1010301w-lb_public_IP&gt;*** placeholder with the IP address you identified in the previous task:
+1. From the lab virtual machine, start Command Prompt and run the following command, after replacing the ***&lt;az1010301w-lb_public_IP&gt;*** placeholder with the IP address you identified in the previous task:
 
    ```
    mstsc /v:<az1010301w-lb_public_IP>:33890
@@ -548,7 +556,7 @@ The main tasks for this exercise are as follows:
 
     - Admin Password: **Pa55w.rd1234**
 
-1. Once you sign in, from the command prompt, run the following command:
+1. Once you sign in, start Command Prompt and run the following command:
 
    ```
    hostname
@@ -556,7 +564,9 @@ The main tasks for this exercise are as follows:
 
 1. Review the output and verify that you are actually connected to the **az1010301w-vm0** Azure VM.
 
-   > **Note**: Repeat the same tests for the second region.
+1. Sign out of the remote desktop session.
+
+> **Note**: Repeat the same tests for the second region.
 
 > **Result**: After you completed this exercise, you have implemented load balancing rules and NAT rules of Azure in two Azure regions and verified load balancing rules and NAT rules of Azure load balancers in the first region.
 
