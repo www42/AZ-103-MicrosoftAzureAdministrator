@@ -49,7 +49,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-   ```pwsh
+   ```powershell
    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
    ```
 
@@ -277,7 +277,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Windows PowerShell prompt, start Azure AD Connect delta synchronization by running the following:
 
-   ```pwsh
+   ```powershell
    Import-Module -Name 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'
 
    Start-ADSyncSyncCycle -PolicyType Delta
@@ -299,25 +299,25 @@ The main tasks for this exercise are as follows:
 
 1. From the Windows PowerShell console, install the MsOnline PowerShell module by running the following (when prompted, in the NuGet provider is required to continue dialog box, click **Yes**):
 
-   ```pwsh
+   ```powershell
    Install-Module MsOnline -Force
    ```
 
 1. From the Windows PowerShell console, connect to the AdatumSync Azure AD tenant by running the following (when prompted, sign in with the SyncAdmin credentials):
 
-   ```pwsh
+   ```powershell
    Connect-MsolService
    ```
 
 1. From the Windows PowerShell console, disable the Azure AD Connect synchronization by running the following:
 
-   ```pwsh
+   ```powershell
    Set-MsolDirSyncEnabled -EnableDirSync $false -Force
    ```
 
 1. From the Windows PowerShell console, verify that the operation was successful by running the following:
 
-   ```pwsh
+   ```powershell
    (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
    ```
 
