@@ -81,7 +81,7 @@ The main tasks for this exercise are as follows:
 
     - Domain Name: **adatum.com**
 
-    - Dns Prefix: the &lt;custom-label&gt; you identified in the previous task
+    - Dns Prefix: the ***&lt;custom-label&gt;*** you identified in the previous task
 
     - VM Size: **Standard_D2s_v3**
 
