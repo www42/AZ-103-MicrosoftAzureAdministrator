@@ -327,6 +327,8 @@ The main tasks for this exercise are as follows:
    (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
    ```
 
+    > **Note**: The result should be `False`; if not, wait a minute and re-run the command.
+
 1. Sign out from the Azure portal and close the Internet Explorer window.
 
 1. Start Internet Explorer, navigate to the Azure portal, and sign in by using the SyncAdmin credentials.
