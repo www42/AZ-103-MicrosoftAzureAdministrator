@@ -335,10 +335,11 @@ The main tasks for this exercise are as follows:
 
     > **Note**: You might need to wait a few hours before you can complete this task in the portal. If the Delete user option is not avalable, switch back to the PowerShell window and run the following command:
 
-    ```powershell
-    Get-MsolUser | where DisplayName -NE "syncadmin" | Remove-MsolUser -Force
-    ```
-    Then retun to the portal and **Refresh** the Users list.
+    >```powershell
+    >Get-MsolUser | where DisplayName -NE "syncadmin" | Remove-MsolUser -Force
+    >```
+
+    >Then retun to the portal and **Refresh** the Users list.
 
 1. Navigate to the AdatumSync - Overview blade and click **Properties**.
 
