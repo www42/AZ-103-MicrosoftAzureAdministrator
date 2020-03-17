@@ -148,7 +148,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser1@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
       > **Note**: Take a note of this user name. You will need it later in this lab.
 
@@ -162,7 +162,7 @@ The main tasks for this exercise are as follows:
     
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser2@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
       > **Note**: Take a note of this user name. You will need it later in this lab.
 
