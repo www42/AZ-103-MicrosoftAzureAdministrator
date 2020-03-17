@@ -190,7 +190,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 1 has completed.
 
-1. In the Azure portal, set the **Directory + subscription** filter back to the **Default directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
+1. In the Azure portal, set the **Directory + subscription** filter back to the **Default Directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
 
     > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal.
 
@@ -358,7 +358,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Open Cloud Shell
 
-1. In the lab virtual machine, in the Edge window showing the Azure portal, set the **Directory + subscription** filter back to the **Default directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
+1. In the lab virtual machine, in the Edge window showing the Azure portal, set the **Directory + subscription** filter back to the **Default Directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
 
     > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal.
 
