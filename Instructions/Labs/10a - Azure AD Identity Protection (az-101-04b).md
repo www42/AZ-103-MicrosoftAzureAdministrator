@@ -148,9 +148,9 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser1@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
-     > **Note**: Take a note of this user name. You will need it later in this lab.
+      > **Note**: Take a note of this user name. You will need it later in this lab.
 
     - Name: **aaduser1**
     
@@ -162,9 +162,9 @@ The main tasks for this exercise are as follows:
     
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser2@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
-     > **Note**: Take a note of this user name. You will need it later in this lab.
+      > **Note**: Take a note of this user name. You will need it later in this lab.
 
     - Name: **aaduser2**
 
@@ -177,7 +177,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 4: Assign Azure AD Premium v2 licenses to Azure AD users
 
-     > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
+   > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
 
 1. From the **Users - All users** blade, navigate to the **aaduser1 - Profile** blade and set the **Usage location** to **United States**.
 
@@ -338,7 +338,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 4: Validate Azure AD Identity Protection configuration by simulating risk events
 
-     > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
+   > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
 
 1. In the Azure portal, set the **Directory + subscription** filter to the **Default Directory** (the original Azure AD tenant.)
 
