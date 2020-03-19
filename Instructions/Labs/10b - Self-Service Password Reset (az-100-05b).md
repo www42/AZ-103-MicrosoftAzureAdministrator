@@ -24,6 +24,7 @@ After completing this lab, you will be able to:
 - Manage Azure AD-integrated SaaS applications
 
 
+
 ### Exercise 1: Manage Azure AD users and groups
 
 The main tasks for this exercise are as follows:
@@ -61,16 +62,16 @@ The main tasks for this exercise are as follows:
 
   - Country or region: **United States**
 
-   > **Note**: Take a note of the initial domain name. You will need it later in this lab.
+     > **Note**: Take a note of the initial domain name. You will need it later in this lab.
 
 
 #### Task 2: Activate Azure AD Premium v2 trial
 
 1. In the Azure portal, set the **Directory + subscription** filter to the newly created Azure AD tenant.
 
-   > **Note**: The **Directory + subscription** filter appears to the right of the Cloud Shell icon in the toolbar of the Azure portal
+     > **Note**: The **Directory + subscription** filter appears to the right of the Cloud Shell icon in the toolbar of the Azure portal
 
-   > **Note**: You might need to refresh the browser window if the **AdatumLab100-5b** entry does not appear in the **Directory + subscription** filter list.
+     > **Note**: You might need to refresh the browser window if the **AdatumLab100-5b** entry does not appear in the **Directory + subscription** filter list.
 
 1. In the Azure portal, navigate to the **AdatumLab100-5b - Overview** blade.
 
@@ -91,7 +92,7 @@ The main tasks for this exercise are as follows:
 
     - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
-   > **Note**: Take a note of this user name. You will need it later in this lab.
+         > **Note**: Take a note of this user name. You will need it later in this lab.
 
     - Profile:
 
@@ -111,7 +112,7 @@ The main tasks for this exercise are as follows:
 
     - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
 
-   > **Note**: Take a note of this user name. You will need it later in this lab.
+         > **Note**: Take a note of this user name. You will need it later in this lab.
 
     - Profile:
 
@@ -144,7 +145,7 @@ The main tasks for this exercise are as follows:
 
 1. Sign out from the portal and sign back in using the same account you are using for this lab.
 
-   > **Note**: This step is necessary in order for the license assignment to take effect.
+     > **Note**: This step is necessary in order for the license assignment to take effect.
 
 
 #### Task 5: Manage Azure AD group membership
@@ -227,7 +228,7 @@ The main tasks for this exercise are as follows:
 
 1. In the new browser window, navigate to the Azure portal and sign in using the **aaduser1** user account. When prompted, change the password to a new value.
 
-   > **Note**: You will need to provide a fully qualified name of the **aaduser1** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
+     > **Note**: You will need to provide a fully qualified name of the **aaduser1** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
 
 1. When prompted with the **More information required** message, continue to the **don't lose access to your account** page.
 
@@ -262,6 +263,7 @@ The main tasks for this exercise are as follows:
 1. Verify that you can sign in to the Azure portal by using the newly reset password.
 
 > **Result**: After you completed this exercise, you have created a new Azure AD tenant, activated Azure AD Premium v2 trial, created and configured Azure AD users, assigned Azure AD Premium v2 licenses to Azure AD users, managed Azure AD group membership, as well as configured and validated self-service password reset functionality
+
 
 
 ### Exercise 2: Manage Azure AD-integrated SaaS applications
@@ -324,7 +326,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Microsoft Edge window, navigate to the Application Access Panel at [**http://myapps.microsoft.com**](http://myapps.microsoft.com) and sign in by using the **aaduser2** user account. When prompted, change the password to a new value.
 
-   > **Note**: You will need to provide a fully qualified name of the **aaduser2** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
+     > **Note**: You will need to provide a fully qualified name of the **aaduser2** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
 
 1. On the Access Panel Applications page, click the **Microsoft OneDrive** icon.
 
@@ -338,9 +340,11 @@ The main tasks for this exercise are as follows:
 
 1. Sign out from the Application Access Panel and close the Microsoft Edge window.
 
-   > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your default Azure AD tenant once you complete this lab.
+     > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your default Azure AD tenant once you complete this lab.
 
 > **Result**: After you completed this exercise, you have added an application from the Azure AD gallery, configured the application for a single sign-on, assigned users to the application, and validated single sign-on for the application.
+
+
 
 ## Exercise 3: Remove lab resources
 
@@ -354,6 +358,6 @@ The main tasks for this exercise are as follows:
 
 1.	Delete all Enterprise App Registrations.
 
-1.	Cancel and then delete the Premium P2 licenses (note that it make take up to 72 hours for this change to take effect).
+1.	Cancel and then delete the Premium P2 licenses. (Note that it make take up to 72 hours for this change to take effect.)
 
-1.	Delete the Azure AD tenant. 
+1.	Delete the Azure AD tenant.  (Note that this cannot be done until the deletion of the licenses takes effect.)
