@@ -263,7 +263,7 @@ The main tasks for this exercise are as follows:
 
 1. In the new browser window, navigate to the Azure portal and sign in using the **aaduser1** user account. When prompted, change the password to a new value.
 
-     > **Note**: You will need to provide a fully qualified name of the **aaduser1** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
+     > **Note**: You will need to provide a fully qualified name: **aaduser1@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
 1. When prompted with the **More information required** message, click **Next** to continue to the **don't lose access to your account** page.
 
@@ -285,7 +285,7 @@ The main tasks for this exercise are as follows:
 
 1. Open an InPrivate Microsoft Edge window.
 
-1. In the new browser window, navigate to the Azure portal and, on the **Pick an account** page, type in the **aaduser1** user account name.
+1. In the new browser window, navigate to the Azure portal and, on the **Pick an account** page, type in: **aaduser1@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
 1. On the **Enter password** page, click the **Forgot my password** link.
 
@@ -364,7 +364,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Microsoft Edge window, navigate to the Application Access Panel at [**http://myapps.microsoft.com**](http://myapps.microsoft.com) and sign in by using the **aaduser2** user account. When prompted, change the password to a new value.
 
-     > **Note**: You will need to provide a fully qualified name of the **aaduser2** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
+     > **Note**: You will need to provide a fully qualified name: **aaduser2@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
 1. On the Access Panel Applications page, click the **Microsoft OneDrive** icon.
 
