@@ -25,6 +25,7 @@ After completing this lab, you will be able to:
 -  Verify delegation by provisioning Azure resources as a delegated admin and auditing provisioning events
 
 
+
 ### Exercise 1: Configure delegation of provisioning and management of Azure resources by using built-in Role-Based Access Control (RBAC) roles and built-in Azure policies
 
 The main tasks for this exercise are as follows:
@@ -101,7 +102,7 @@ The main tasks for this exercise are as follows:
 
     - Resource group location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
 
-   > **Note**: To identify Azure regions available in your subscription, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+         > **Note**: To identify Azure regions available in your subscription, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
 1. From the **Resource groups** blade, create the second resource group with the following settings:
 
@@ -153,7 +154,9 @@ The main tasks for this exercise are as follows:
 
     - Create a Managed Identity: leave the entry blank
 
+
 > **Result**: After you completed this exercise, you have created an Azure AD user and an Azure AD group, created two Azure resource groups, delegated management of the first Azure resource group via the built-in Azure VM Contributor RBAC role, and assigned to the same resource group the built-in Azure policy restricting SKUs that can be used for Azure VMs.
+
 
 
 ### Exercise 2: Verify delegation by provisioning Azure resources as a delegated admin and auditing provisioning events
@@ -173,11 +176,11 @@ The main tasks for this exercise are as follows:
 
 1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
 1. In the Cloud Shell pane, run the following command, substituting the placeholder &lt;custom-label&gt; with any string which is likely to be unique and the placeholder &lt;location-of-az1000101-RG&gt; with the name of the Azure region in which you created the **az1000101-RG** resource group.
 
-   ```pwsh
+   ```powershell
    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location-of-az1000101-RG>'
    ```
 
@@ -187,17 +190,17 @@ The main tasks for this exercise are as follows:
 
 1. Run these commands:
 
-   ```pwsh
+   ```powershell
    Register-AzResourceProvider –ProviderNamespace Microsoft.Network
    ```
 
-   ```pwsh
+   ```powershell
    Register-AzResourceProvider –ProviderNamespace Microsoft.Compute
    ```
 
-Note: These cmdlets register the Azure Resource Manager Microsoft.Network and Microsoft.Compute resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
+     > **Note**: These cmdlets register the Azure Resource Manager Microsoft.Network and Microsoft.Compute resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
 
-Also Note: If you encounter an error after running these commands that mentions a token expiry set to a time that is before the current time, click the power button icon on our Cloud Shell UI and reboot your Cloud Shell instance.  Once restarted, retry these commands.
+     > **Also Note**: If you encounter an error after running these commands that mentions a token expiry set to a time that is before the current time, click the power button icon on our Cloud Shell UI and reboot your Cloud Shell instance.  Once restarted, retry these commands.
 
 #### Task 2: Attempt an automated deployment of a policy non-compliant Azure VM as a delegated admin
 
@@ -267,7 +270,10 @@ Also Note: If you encounter an error after running these commands that mentions 
 
 1. Refresh the view of the blade and observe events corresponding to the Azure VM provisioning, including the final one representing the successful deployment.
 
+
 > **Result**: After you completed this exercise, you have identified an available DNS name for an Azure VM deployment, attempted an automated deployment of a policy non-compliant Azure VM as a delegated admin, performed an automated deployment of a policy compliant Azure VM as the same delegated admin, and reviewed Azure Activity Log entries corresponding to both Azure VM deployments.
+
+
 
 ## Exercise 3: Remove lab resources
 
@@ -294,5 +300,6 @@ Also Note: If you encounter an error after running these commands that mentions 
    ```
 
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
 
 > **Result**: In this exercise, you removed the resources used in this lab.
