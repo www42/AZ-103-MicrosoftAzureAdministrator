@@ -29,6 +29,7 @@ After completing this lab, you will be able to:
 -  Implement Azure resource locks
 
 
+
 ### Exercise 1: Implement Azure tags by using Azure policies and initiatives
 
 The main tasks for this exercise are as follows:
@@ -60,7 +61,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
 
-   > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter, including tags on some of its resources.
+    > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter, including tags on some of its resources.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -90,15 +91,15 @@ The main tasks for this exercise are as follows:
 
     - Environment Name: **lab**
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+       > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-   > **Note**: Do not wait for the deployment to complete before you proceed to the next step.
+    > **Note**: Do not wait for the deployment to complete before you proceed to the next step.
 
 1. In the Azure portal, navigate to the **Tags** blade.
 
 1. From the **Tags** blade, display all resources with the **environment** tag set to the value **lab**. Note that only some of the resources deployed in the previous task have this tag assigned.
 
-   > **Note**: At this point, only some of the resources have been provisioned, however, you should see at least a few without tags assigned to them.
+    > **Note**: At this point, only some of the resources have been provisioned, however, you should see at least a few without tags assigned to them.
 
 
 #### Task 2: Implement a policy and an initiative that evaluate resource tagging compliance.
@@ -192,7 +193,7 @@ The main tasks for this exercise are as follows:
 
 1. Navigate to the **Policy - Compliance** blade. Note that **COMPLIANCE STATE** is set to either **Not registered** or **Not started**.
 
-   > **Note**: On average, it takes about 10 minutes for a compliance scan to start. Rather than waiting for the compliance scan, proceed to the next task. You will review the compliance status later in this exercise.
+    > **Note**: On average, it takes about 10 minutes for a compliance scan to start. Rather than waiting for the compliance scan, proceed to the next task. You will review the compliance status later in this exercise.
 
 
 #### Task 3: Implement a policy that enforces resource tagging compliance.
@@ -209,7 +210,7 @@ The main tasks for this exercise are as follows:
 
     - Tag Value: **lab**
 
-   > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
+    > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
 
 
 #### Task 4: Evaluate tagging enforcement and tagging compliance.
@@ -224,7 +225,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
 
-   > **Note**: This is the same template that you used for deployment in the first task of this exercise.
+    > **Note**: This is the same template that you used for deployment in the first task of this exercise.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -264,7 +265,7 @@ The main tasks for this exercise are as follows:
 
 1. Display the listing of resource compliance and note which resources have been identified as non-compliant.
 
-   > **Note**: You might need to click **Refresh** button on the **Policy - Compliance** blade in order to see the update to the compliance status.
+    > **Note**: You might need to click **Refresh** button on the **Policy - Compliance** blade in order to see the update to the compliance status.
 
 
 #### Task 5: Implement remediation of resource tagging non-compliance.
@@ -283,21 +284,21 @@ The main tasks for this exercise are as follows:
 
 1. Delete the built-in policy definition named **Require tag and its value** from the initiative and save the changes.
 
-   > **Note**: At this point, your initiative contains a single policy that automatically remediates tagging non-compliance during deployment of new resources and provides evaluation of compliance status.
+    > **Note**: At this point, your initiative contains a single policy that automatically remediates tagging non-compliance during deployment of new resources and provides evaluation of compliance status.
 
 1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
 1. In the Cloud Shell pane, run the following commands.
 
-   ```pwsh
+   ```powershell
    Get-AzResource -ResourceGroupName 'az1000101b-RG' | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag @{environment="lab"} -Force }
    ```
 
-   > **Note**: These commands assign the **environment** tag with the value **lab** to each resource in the resource group **az1000101b-RG**, overwriting any already assigned tags.
+    > **Note**: These commands assign the **environment** tag with the value **lab** to each resource in the resource group **az1000101b-RG**, overwriting any already assigned tags.
 
-   > **Note**: Wait until the commands successfully complete.
+    > **Note**: Wait until the commands successfully complete.
 
 1. In the Azure portal, navigate to the **Tags** blade.
 
@@ -316,7 +317,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
 
-   > **Note**: This is the same template that you used for deployment in the first task of this exercise.
+    > **Note**: This is the same template that you used for deployment in the first task of this exercise.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -346,25 +347,26 @@ The main tasks for this exercise are as follows:
 
     - Environment Name: **lab**
 
-   > **Note**: The deployment will succeed this time. This is expected.
+    > **Note**: The deployment will succeed this time. This is expected.
 
-   > **Note**: Do not wait for the deployment to complete before you proceed to the next step.
+    > **Note**: Do not wait for the deployment to complete before you proceed to the next step.
 
 1. In the Azure portal, navigate to the **Tags** blade.
 
 1. From the **Tags** blade, display all resources with the **environment** tag set to the value **lab**. Note that all the resources deployed to the resource group **az1000102b-RG** have this tag with the same value automatically assigned.
 
-   > **Note**: At this point, only some of the resources have been provisioned, however, you should see that all of them have tags assigned to them.
+    > **Note**: At this point, only some of the resources have been provisioned, however, you should see that all of them have tags assigned to them.
 
 1. Navigate to the **Policy - Compliance** blade. Identify the entry in the **COMPLIANCE STATE** column.
 
 1. Navigate to the **az10001b - Tagging initiative assignment** blade. Identify the entry in the **COMPLIANCE STATE** column. If the column contains the **Not started** entry, wait until it the compliance scan runs.
 
-   > **Note**: You might need to wait for up to 10 minutes and click **Refresh** button on the **Policy - Compliance** blade in order to see the update to the compliance status.
+    > **Note**: You might need to wait for up to 10 minutes and click **Refresh** button on the **Policy - Compliance** blade in order to see the update to the compliance status.
 
-   > **Note**: Do not wait until the status is listed as compliant but instead proceed to the next exercise.
+    > **Note**: Do not wait until the status is listed as compliant but instead proceed to the next exercise.
 
 > **Result**: After you completed this exercise, you have implemented an initiative and policies that evaluate, enforce, and remediate resource tagging compliance. You also evaluated the effects of policy assignment.
+
 
 
 ### Exercise 2: Implement Azure resource locks
@@ -416,7 +418,10 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have created a resource group-level lock to prevent accidental changes and validated its functionality.
 
+
+
 ## Exercise 3: Remove lab resources
+
 
 #### Task 1: Delete the resource group-level lock.
 
@@ -425,6 +430,7 @@ The main tasks for this exercise are as follows:
 1. From the **az1000101b-RG** resource group blade, display the **az1000101b-RG - Locks** blade.
 
 1. On the **az1000101b-RG - Locks** blade, delete the **az1000101b-roLock**.
+
 
 #### Task 2: Delete the policy assignment and definition.
 
@@ -437,6 +443,7 @@ The main tasks for this exercise are as follows:
 1. From the **Policy**, blade navigate to the **Policy - Definitions** blade.
 
 1. From the **Policy - Definitions** blade, delete all definitions you created earlier in this lab.
+
 
 #### Task 3: Open Cloud Shell
 
@@ -451,6 +458,7 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
 
 #### Task 4: Delete resource groups
 
