@@ -79,7 +79,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Licenses - Overview** blade, navigate to the **Products** blade.
 
-1. From the **Licenses - All products** blade, click **Try/Buy**, **Free Trial of Azure AD Premium P2**, followed by **Activate**.
+1. From the **Licenses - All products** blade, click **Try/Buy**. Under **Azure AD Premium P2** expand **Free trial**, and then click **Activate**.
 
 
 #### Task 3: Create and configure Azure AD users
@@ -88,58 +88,67 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - Name: **aaduser1**
-
-    - User name: **aaduser1@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser1@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
          > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile:
+    - Name: **aaduser1**
+
+    - Password: select the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
+
+    - Groups and roles:
+    
+        - Groups: **0 groups selected**
+
+        - Roles: **User**
+
+    - Settings:
+
+        - Usage location: **United States**
+
+             > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
+
+    - Job info:
 
         - Department: **Sales**
 
-    - Properties: **Default**
-
-    - Groups: **0 groups selected**
-
-    - Directory role: **User**
-
-    - Password: select the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - Name: **aaduser2**
-
-    - User name: **aaduser2@&lt;DNS-domain-name&gt;.onmicrosoft.com** where &lt;DNS-domain-name&gt; represents the initial domain name you specified in the first task of this exercise.
+    - User name: **aaduser2@*&lt;DNS-domain-name&gt;*.onmicrosoft.com** where ***&lt;DNS-domain-name&gt;*** represents the initial domain name you specified in the first task of this exercise.
 
          > **Note**: Take a note of this user name. You will need it later in this lab.
 
-    - Profile:
-
-        - Department: **Finance**
-
-    - Properties: **Default**
-
-    - Groups: **0 groups selected**
-
-    - Directory role: **User**
+    - Name: **aaduser2**
 
     - Password: select the checkbox **Show Password** and note the string appearing in the **Password** text box. You will need it later in this lab.
+
+    - Groups and roles:
+    
+        - Groups: **0 groups selected**
+
+        - Roles: **User**
+
+    - Settings:
+
+        - Usage location: **United States**
+
+             > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
+
+    - Job info:
+
+        - Department: **Finance**
 
 
 #### Task 4: Assign Azure AD Premium v2 licenses to Azure AD users
 
-   > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
+1. Return to the **Users - All users** blade, navigate to the **aaduser1 - Licenses** blade and assign to the user an Azure Active Directory Premium P2 license with all licensing options enabled.
 
-1. From the **Users - All users** blade, navigate to the **aaduser1 - Profile** blade and set the **Usage location** to **United States**.
-
-1. From the **aaduser1 - Profile** blade, navigate to the **aaduser1 - Licenses** blade and assign to the user an Azure Active Directory Premium P2 license with all licensing options enabled.
-
-1. Return to the **Users - All users** blade, navigate to the **aaduser2 - Profile** blade, and set the **Usage location** to **United States**.
-
-1. From the **aaduser2 - Profile** blade, navigate to the **aaduser2 - Licenses** blade and assign to the user an Azure Active Directory Premium P2 license with all licensing options enabled.
+1. Return to the **Users - All users** blade, navigate to the **aaduser2 - Licenses** blade and assign to the user an Azure Active Directory Premium P2 license with all licensing options enabled.
 
 1. Return to the **Users - All users** blade, navigate to the Profile entry of your user account and set the **Usage location** to **United States**.
+
+     > **Note**: In order to assign Azure AD Premium v2 licenses to Azure AD users, you first have to set their location attribute.
 
 1. Navigate to **Licenses** blade of your user account and assign to it an Azure Active Directory Premium P2 license with all licensing options enabled.
 
@@ -150,9 +159,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 5: Manage Azure AD group membership
 
-1. In the Azure portal, navigate to the **Groups - All groups** blade.
+1. In the Azure portal, navigate to the **Groups - All groups** blade of the **AdatumLab100-5b** directory.
 
-1. From the **Groups - All groups** blade, navigate to the **Group** blade and create a new group with the following settings:
+1. From the **Groups - All groups** blade, create a new group with the following settings:
 
     - Group type: **Security**
 
@@ -162,11 +171,19 @@ The main tasks for this exercise are as follows:
 
     - Membership type: **Dynamic User**
 
+    - Owners: **No owners selected**
+
     - Dynamic user members:
 
-        - Add users where: **department Equals Sales**
+        - Click **Add dynamic query** and create a rule with the following settings:
 
-1. From the **Groups - All groups** blade, navigate to the **Group** blade and create a new group with the following settings:
+            - Property: **department**
+
+            - Operator: **Equals**
+
+            - Value: **Sales**
+
+1. From the **Groups - All groups** blade, create a new group with the following settings:
 
     - Group type: **Security**
 
@@ -176,9 +193,29 @@ The main tasks for this exercise are as follows:
 
     - Membership type: **Dynamic User**
 
+    - Owners: **No owners selected**
+
     - Dynamic user members:
 
-        - Add rule: **(user.department -eq "Sales") -or (user.department -eq "Finance")**
+        - Click **Add dynamic query** and create a rule with the following settings:
+
+            - Property: **department**
+
+            - Operator: **Equals**
+            
+            - Value: **Sales**
+            
+            - Click **Add expression**
+            
+            - And/Or: **Or**
+
+            - Property: **department**
+
+            - Operator: **Equals**
+            
+            - Value: **Finance**
+            
+             > **Note**: The Rule syntax should show: **(user.department -eq "Sales") or (user.department -eq "Finance")**
 
 1. From the **Groups - All groups** blade, navigate to the blades of **Sales** and **Sales and Finance** groups, and note that the group membership evaluation is in progress. Wait until the evalution completes, then navigate to the **Members** blade, and verify that the group membership is correct.
 
@@ -195,7 +232,7 @@ The main tasks for this exercise are as follows:
 
     - Selected group: **Sales**
 
-1. From the **Password reset - Properties** blade, navigate to the **Password reset - Authentication methods** blade and configure the following settings:
+1. From the **Password reset - Properties** blade, navigate to the **Password reset - Authentication methods** blade, configure and save the following settings:
 
     - Number of methods required to reset: **1**
 
@@ -204,8 +241,6 @@ The main tasks for this exercise are as follows:
         - **Email**
 
         - **Mobile phone**
-
-        - **Office phone**
 
         - **Security questions**
 
@@ -230,11 +265,9 @@ The main tasks for this exercise are as follows:
 
      > **Note**: You will need to provide a fully qualified name of the **aaduser1** user account, including the Azure AD tenant DNS domain name, as noted earlier in this lab.
 
-1. When prompted with the **More information required** message, continue to the **don't lose access to your account** page.
+1. When prompted with the **More information required** message, click **Next** to continue to the **don't lose access to your account** page.
 
 1. On the **don't lose access to your account** page, note that you need to set up at least one of the following options:
-
-    - **Office phone**
 
     - **Authentication Phone**
 
@@ -243,6 +276,8 @@ The main tasks for this exercise are as follows:
     - **Security Questions**
 
 1. From the **don't lose access to your account** page, configure answers to 5 security questions you selected in the previous task
+
+     > **Note**: Take note of these answers; You will need them in the next steps.
 
 1. Verify that you successfully signed in to the Azure portal.
 
@@ -261,6 +296,9 @@ The main tasks for this exercise are as follows:
 1. On the next page, enter twice a new password and complete the password reset process.
 
 1. Verify that you can sign in to the Azure portal by using the newly reset password.
+
+1. Sign out as **aaduser1** and close the InPrivate browser window.
+
 
 > **Result**: After you completed this exercise, you have created a new Azure AD tenant, activated Azure AD Premium v2 trial, created and configured Azure AD users, assigned Azure AD Premium v2 licenses to Azure AD users, managed Azure AD group membership, as well as configured and validated self-service password reset functionality
 
@@ -285,7 +323,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **AdatumLab100-5b - Overview** blade, navigate to the **Enterprise applications - All applications** blade.
 
-1. From the **Enterprise applications - All applications** blade, navigate to the **Add an application** blade.
+1. From the **Enterprise applications - All applications** blade, click **New application**.
 
 1. On the **Add an application** blade, search the application gallery for the **Microsoft OneDrive**.
 
@@ -294,14 +332,14 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Configure the application for a single sign-on
 
-1. On the **Overview** blade, select **Set up single sign on**.
+1. On the **Microsoft OneDrive - Overview** blade, select **Set up single sign on**.
 
-1. On the **Microsoft OneDrive - Single sign-on** blade, select the **Password-based** option and save the configuration.
+1. On the **Microsoft OneDrive - Single sign-on** blade, select the **Password-based** option and **Save** the configuration.
 
 
 #### Task 3: Assign users to the application
 
-1. Navigate to the **Overview** blade and click **Assign users and groups**
+1. Navigate to the **Microsoft OneDrive - Overview** blade and click **Assign users and groups**
 
 1. From the **Users and groups** blade for **Microsoft OneDrive**, navigate to the **Add Assignment** blade and add the following assignment:
 
@@ -340,7 +378,7 @@ The main tasks for this exercise are as follows:
 
 1. Sign out from the Application Access Panel and close the Microsoft Edge window.
 
-     > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your default Azure AD tenant once you complete this lab.
+     > **Note**: Make sure to launch Microsoft Edge again, browse to the Azure portal, sign in by using the Microsoft account that has the Owner role in the Azure subscription you were using in this lab, and use the **Directory + subscription** filter to switch to your **Default Domain** Azure AD tenant once you complete this lab.
 
 > **Result**: After you completed this exercise, you have added an application from the Azure AD gallery, configured the application for a single sign-on, assigned users to the application, and validated single sign-on for the application.
 
