@@ -138,21 +138,29 @@ The main tasks for this exercise are as follows:
 
 1. Assign the policy with the following settings:
 
-    - Scope: **az1000101-RG**
+   - Basics tab:
 
-    - Exclusions: leave the entry blank
+     - Scope: ***&lt;name of the subscription you are using in this lab&gt;*/az1000101-RG**
 
-    - Policy definition: **Allowed virtual machine SKUs**
+     - Exclusions: leave the entry blank
 
-    - Assignment name: **Allowed virtual machine SKUs**
+     - Policy definition: **Allowed virtual machine SKUs**
 
-    - Description: **Allowed selected virtual machine SKUs (Standard_DS1_v2)**
+     - Assignment name: **Allowed virtual machine SKUs**
 
-    - Assigned by: leave the entry set to its default value
-	
-    - Allowed SKUs: **Standard_DS1_v2**
+     - Description: **Allowed selected virtual machine SKUs (Standard_DS1_v2)**
 
-    - Create a Managed Identity: leave the entry blank
+     - Policy enforcement: **Enabled**
+
+     - Assigned by: leave the entry set to its default value
+
+   - Parameters tab:
+    
+     - Allowed SKUs: **Standard_DS1_v2**
+
+   - Remediation tab:
+
+     - Create a Managed Identity: leave the entry blank
 
 
 > **Result**: After you completed this exercise, you have created an Azure AD user and an Azure AD group, created two Azure resource groups, delegated management of the first Azure resource group via the built-in Azure VM Contributor RBAC role, and assigned to the same resource group the built-in Azure policy restricting SKUs that can be used for Azure VMs.
@@ -174,7 +182,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Identify an available DNS name for an Azure VM deployment
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
      > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
@@ -204,9 +212,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Attempt an automated deployment of a policy non-compliant Azure VM as a delegated admin
 
-1. Launch another browser window in the Private mode.
+1. Launch another browser window in the InPrivate mode.
 
-1. In the new browser window, navigate to the Azure portal and sign in using the user account you created in the previous exercise. When prompted, change the password to a new value.
+1. In the new browser window, navigate to the Azure portal and sign in using the user account **aaduser100011@*&lt;DNS-domain-name&gt;*** where ***&lt;DNS-domain-name&gt;*** represents the primary DNS domain name you identified earlier. When prompted, change the password to a new value.
 
 1. In the Azure portal, navigate to the **Resource groups** blade and note that you can view only the resource group **az1000101-RG**.
 
@@ -234,20 +242,21 @@ The main tasks for this exercise are as follows:
 
     - Admin Username: **Student**
 
-    - Admin Password: **Pa55w.rd1234**
+    - Authentication Type: **password**
+
+    - Admin Password Or Key: **Pa55w.rd1234**
 
     - Dns Label Prefix: the ***&lt;custom-label&gt;*** you identified in the previous task
 
-    - Ubuntu OS Version: accept the default value
+    - Accept the default values of the remaining settings
 
-    - Location: accept the default value
 
 1. Note that the initiation of the deployment fails. Navigate to the **Errors** blade and note that the deployment of the resource is not allowed by the policy **Allowed virtual machine SKUs**.
 
 
 #### Task 3: Perform an automated deployment of a policy compliant Azure VM as a delegated admin
 
-1. From the **Deploy a simple Ubuntu Linux VM** blade, navigate to the **Edit template** blade.
+1. From the **Deploy a simple Ubuntu Linux VM** blade, navigate to the **Edit parameters** blade.
 
 1. On the **Edit parameters** blade, locate the **vmSize** entry.
 
