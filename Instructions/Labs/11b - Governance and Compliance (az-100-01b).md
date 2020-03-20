@@ -12,7 +12,7 @@ All tasks in this lab are performed from the Azure portal (including a PowerShel
 
 Lab files:
 
--  **Labfiles\\Module_11\\Governance_and_Compliance\\AZ-100.1\\az-100-01b_azuredeploy.json**
+-  **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.json**
 
 -  **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.parameters.json**
 
@@ -59,7 +59,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Custom deployment** blade, select the **Build your own template in the editor**.
 
-1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
+1. From the **Edit template** blade, load the template file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.json**.
 
     > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter, including tags on some of its resources.
 
@@ -67,7 +67,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Custom deployment** blade, navigate to the **Edit parameters** blade.
 
-1. From the **Edit parameters** blade, load the parameters file **az-100-01b_azuredeploy.parameters.json**.
+1. From the **Edit parameters** blade, load the parameters file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.parameters.json**.
 
 1. Save the parameters and return to the **Custom deployment** blade.
 
@@ -110,7 +110,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Policy Definitions** blade, display the **Require tag and its value** policy definition.
 
-1. From the **Require tag and its default value** policy definition blade, use the duplicate the definition feature to create a new policy with the following settings:
+1. From the **Require a tag and its value on resources** policy definition blade, use the **Duplicate definition** feature to create a new policy with the following settings:
 
     - Definition location: the name of the subscription you are using in this lab
 
@@ -165,13 +165,13 @@ The main tasks for this exercise are as follows:
 
     - Description: **Collection of tag policies.**
 
-    - Category: **Lab**
+    - Category: Use existing category **Lab**
 
-    - AVAILABLE DEFINITIONS: search for and select **az10001b - Audit tag and its value**
+    - AVAILABLE DEFINITIONS: search for and Add **az10001b - Audit tag and its value**
 
-        - Tag Name: **environment**
+        - Tag Name: **Set value** - **environment**
 
-        - Tag Value: **lab**
+        - Tag Value: **Set value** - **lab**
 
 1. Navigate to the **Policy - Assignments** blade.
 
@@ -187,9 +187,9 @@ The main tasks for this exercise are as follows:
 
     - Description: **Assignment of az10001b - Tagging initiative**
 
-    - Assigned by: the default value
+    - Policy enforcement: **Enabled**
 
-    - Create a Managed Identity: **unchecked**
+    - Assigned by: the default value
 
 1. Navigate to the **Policy - Compliance** blade. Note that **COMPLIANCE STATE** is set to either **Not registered** or **Not started**.
 
@@ -202,15 +202,15 @@ The main tasks for this exercise are as follows:
 
 1. From the **Policy - Definitions** blade, navigate to the **az10001b - Tagging initiative** blade.
 
-1. From the **az10001b - Tagging initiative** blade, navigate to its **Edit initiative definition** blade.
+1. From the **az10001b - Tagging initiative** blade, navigate to its **Edit initiative** blade.
 
-1. Add the built-in policy definition named **Require tag and its value** to the initiative and set its parameters to the following values:
+1. Add the built-in policy definition named **Require a tag and its value on resources** to the initiative and set its parameters to the following values:
 
     - Tag Name: **environment**
 
     - Tag Value: **lab**
 
-    > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
+       > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
 
 
 #### Task 4: Evaluate tagging enforcement and tagging compliance.
@@ -223,7 +223,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Custom deployment** blade, select the **Build your own template in the editor**.
 
-1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
+1. From the **Edit template** blade, load the template file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.json**.
 
     > **Note**: This is the same template that you used for deployment in the first task of this exercise.
 
@@ -231,7 +231,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Custom deployment** blade, navigate to the **Edit parameters** blade.
 
-1. From the **Edit parameters** blade, load the parameters file **az-100-01b_azuredeploy.parameters.json**.
+1. From the **Edit parameters** blade, load the parameters file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.parameters.json**.
 
 1. Save the parameters and return to the **Custom deployment** blade.
 
@@ -272,9 +272,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **az10001b - Tagging initiative** blade.
 
-1. From the **az10001b - Tagging initiative** blade, navigate to its **Edit initiative definition** blade.
+1. From the **az10001b - Tagging initiative** blade, navigate to its **Edit initiative** blade.
 
-1. Add the built-in policy definition named **Append tag and its default value** to the initiative and set its parameters to the following values:
+1. Add the built-in policy definition named **Append a tag and its value to resources** to the initiative and set its parameters to the following values:
 
     - Tag Name: **environment**
 
@@ -282,11 +282,11 @@ The main tasks for this exercise are as follows:
 
 1. Delete the custom policy definition named **az10001b - Audit tag and its value** from the initiative.
 
-1. Delete the built-in policy definition named **Require tag and its value** from the initiative and save the changes.
+1. Delete the built-in policy definition named **Require a tag and its value on resources** from the initiative and save the changes.
 
     > **Note**: At this point, your initiative contains a single policy that automatically remediates tagging non-compliance during deployment of new resources and provides evaluation of compliance status.
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
@@ -315,7 +315,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Custom deployment** blade, select the **Build your own template in the editor**.
 
-1. From the **Edit template** blade, load the template file **az-100-01b_azuredeploy.json**.
+1. From the **Edit template** blade, load the template file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.json**.
 
     > **Note**: This is the same template that you used for deployment in the first task of this exercise.
 
@@ -323,7 +323,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Custom deployment** blade, navigate to the **Edit parameters** blade.
 
-1. From the **Edit parameters** blade, load the parameters file **az-100-01b_azuredeploy.parameters.json**.
+1. From the **Edit parameters** blade, load the parameters file **Labfiles\\Module_11\\Governance_and_Compliance\\az-100-01b_azuredeploy.parameters.json**.
 
 1. Save the parameters and return to the **Custom deployment** blade.
 
