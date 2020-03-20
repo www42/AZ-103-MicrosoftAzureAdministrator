@@ -50,7 +50,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Edit template** blade, load the template file **Labfiles\\Module_12\\Implementing_File_Sync\\az-100-02b_azuredeploy.json**.
 
-   > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter with a single data disk.
+     > **Note**: Review the content of the template and note that it defines deployment of an Azure VM hosting Windows Server 2016 Datacenter with a single data disk.
 
 1. Save the template and return to the **Custom deployment** blade.
 
@@ -78,11 +78,12 @@ The main tasks for this exercise are as follows:
 
     - Virtual Network Name: **az1000201b-vnet1**
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+         > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-   > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine included in this deployment in the next exercise of this lab.
+     > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine included in this deployment in the next exercise of this lab.
 
-   > **Note**: Keep in mind that the purpose of Azure VM **az1000201b-vm1** is to emulate an on-premises file server in our scenario.
+     > **Note**: Keep in mind that the purpose of Azure VM **az1000201b-vm1** is to emulate an on-premises file server in our scenario.
+
 
 > **Result**: After you completed this exercise, you have initiated a template deployment of an Azure VM **az1000201b-vm1** that you will use in the next exercise of this lab.
 
@@ -132,7 +133,7 @@ The main tasks for this exercise are as follows:
 
     - Hierarchical namespace: **Disabled**
 
-   > **Note**: Wait for the storage account to be provisioned then proceed to the next step.
+     > **Note**: Wait for the storage account to be provisioned then proceed to the next step.
 
 1. In the Azure portal, navigate to the blade representing the newly provisioned storage account.
 
@@ -147,7 +148,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Prepare Windows Server 2016 for use with Azure File Sync
 
-   > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
+     > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
 
 1. In the Azure portal, navigate to the **az1000201b-vm1** blade.
 
@@ -179,7 +180,7 @@ The main tasks for this exercise are as follows:
    Copy-Item -Path 'C:\WindowsAzure\*' -Destination $directory.FullName –Recurse
    ```
 
-   > **Note**: To populate the file share with sample data, we use content of the *C:\\WindowsAzure* folder, which should contain about 100 MB worth of files
+     > **Note**: To populate the file share with sample data, we use content of the *C:\\WindowsAzure* folder, which should contain about 100 MB worth of files
 
 1. From the Windows PowerShell console, install the latest Az PowerShell module by running the following:
 
@@ -187,7 +188,7 @@ The main tasks for this exercise are as follows:
    Install-Module -Name Az -AllowClobber
    ```
 
-   > **Note**: When prompted, confirm that you want to proceed with the installation from PSGallery repository.
+     > **Note**: When prompted, confirm that you want to proceed with the installation from PSGallery repository.
 
 
 #### Task 3: Run Azure File Sync evaluation tool
@@ -200,7 +201,9 @@ The main tasks for this exercise are as follows:
 
 1. Review the results and verify that no compatibility issues have been found.
 
+
 > **Result**: After you completed this exercise, you have created an Azure Storage account and a file share, prepare Windows Server 2016 for use with Azure File Sync, and run Azure File Sync evaluation tool
+
 
 
 ### Exercise 2: Prepare Azure File Sync infrastructure
@@ -305,7 +308,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the RDP session to the Azure VM, in the Azure portal, monitor the health status of the server endpoint **az100021b-vm1** on the **az1000202b-syncgroup1** blade, as it changes from **Provisioning** to **Pending** and, eventually, to a green checkmark.
 
-   > **Note**: You should be able to proceed to the next step after a few minutes.
+     > **Note**: You should be able to proceed to the next step after a few minutes.
 
 1. In the Azure portal, navigate to the blade for the storage account you created earlier in the lab, switch to the **Files** tab and then click **az10002bshare1**.
 
@@ -327,7 +330,9 @@ The main tasks for this exercise are as follows:
 > **Result**: After you completed this exercise, you have deployed the Storage Sync Service, installed the Azure File Sync Agent, registered the Windows Server with Storage Sync Service, created a sync group and a cloud endpoint, created a server endpoint, and validated Azure File Sync operations.
 
 
+
 ## Exercise 3: Remove lab resources
+
 
 #### Task 1: Open Cloud Shell
 
@@ -342,6 +347,7 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
 
 #### Task 2: Delete resource groups
 
