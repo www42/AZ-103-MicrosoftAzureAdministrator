@@ -135,7 +135,7 @@ The main tasks for this exercise are as follows:
 
     - NFS v3: **Disabled**
 
-     > **Note**: Wait for the storage account to be provisioned then proceed to the next step.
+     > **Note**: Wait for the storage account to be provisioned, then proceed to the next step.
 
 1. In the Azure portal, navigate to the blade representing the newly provisioned storage account.
 
@@ -150,7 +150,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Prepare Windows Server 2016 for use with Azure File Sync
 
-     > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
+ > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 0 has completed.
 
 1. In the Azure portal, navigate to the **az1000201b-vm1** blade.
 
