@@ -61,7 +61,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Custom deployment** blade, click the **Build your own template in the editor** link. If you do not see this link, click **Edit template** instead.
 
-1. From the **Edit template** blade, load the template file **az-101-03b_01_azuredeploy.json**.
+1. From the **Edit template** blade, load the template file **Labfiles\\Module_06\\Network_Watcher\\az-101-03b_01_azuredeploy.json**.
 
      > **Note**: Review the content of the template and note that it defines deployment of an Azure VM, an Azure SQL Database, and an Azure Storage account.
 
@@ -69,7 +69,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Custom deployment** blade, navigate to the **Edit parameters** blade.
 
-1. From the **Edit parameters** blade, load the parameters file **az-101-03b_01_azuredeploy.parameters.json**.
+1. From the **Edit parameters** blade, load the parameters file **Labfiles\\Module_06\\Network_Watcher\\az-101-03b_01_azuredeploy.parameters.json**.
 
 1. Save the parameters and return to the **Custom deployment** blade.
 
@@ -121,7 +121,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Custom deployment** blade, click the **Build your own template in the editor** link. If you do not see this link, click **Edit template** instead.
 
-1. From the **Edit template** blade, load the template file **az-101-03b_02_azuredeploy.json**.
+1. From the **Edit template** blade, load the template file **Labfiles\\Module_06\\Network_Watcher\\az-101-03b_02_azuredeploy.json**.
 
      > **Note**: Review the content of the template and note that it defines deployment of an Azure VM.
 
@@ -129,7 +129,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Custom deployment** blade, navigate to the **Edit parameters** blade.
 
-1. From the **Edit parameters** blade, load the parameters file **az-101-03b_02_azuredeploy.parameters.json**.
+1. From the **Edit parameters** blade, load the parameters file **Labfiles\\Module_06\\Network_Watcher\\az-101-03b_02_azuredeploy.parameters.json**.
 
 1. Save the parameters and return to the **Custom deployment** blade.
 

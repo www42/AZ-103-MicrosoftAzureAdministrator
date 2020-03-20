@@ -208,7 +208,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Deploy Azure VMs into virtual networks
 
-1. In the Cloud Shell pane, upload **az-100-04b_01_azuredeploy.json**, **az-100-04b_02_azuredeploy.json**, and **az-100-04_azuredeploy.parameters.json** files.
+1. In the Cloud Shell pane, upload the **az-100-04b_01_azuredeploy.json**, **az-100-04b_02_azuredeploy.json**, and **az-100-04_azuredeploy.parameters.json** files from the **Labfiles\\Module_04\\Configure_Azure_DNS** folder.
 
 1. In the Cloud Shell pane, run the following in order to deploy an Azure VM into the first virtual network:
 
