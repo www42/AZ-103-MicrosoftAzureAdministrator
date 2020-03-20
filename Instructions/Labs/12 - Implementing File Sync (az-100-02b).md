@@ -68,7 +68,7 @@ The main tasks for this exercise are as follows:
 
     - Location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs
 
-    - Vm Size: **Standard_DS1_v2**
+    - Vm Size: **Standard_DS2_v2**
 
     - Vm Name: **az1000201b-vm1**
 
@@ -312,7 +312,7 @@ The main tasks for this exercise are as follows:
 
      > **Note**: You should be able to proceed to the next step after a few minutes.
 
-1. In the Azure portal, navigate to the blade for the storage account you created earlier in the lab, switch to the **Files** tab and then click **az10002bshare1**.
+1. In the Azure portal, navigate to the blade for the storage account you created earlier in the lab, switch to the **File shares** tab and then click **az10002bshare1**.
 
 1. On the **az10002bshare1** blade, click **Connect**.
 
@@ -328,6 +328,7 @@ The main tasks for this exercise are as follows:
 
 1. Display the Properties window of individual folders on the Z: drive, review the Security tab, and note that the entries represent NTFS permissions assigned to the corresponding folders on the S: drive.
 
+1. Close the RDP session.
 
 > **Result**: After you completed this exercise, you have deployed the Storage Sync Service, installed the Azure File Sync Agent, registered the Windows Server with Storage Sync Service, created a sync group and a cloud endpoint, created a server endpoint, and validated Azure File Sync operations.
 
@@ -339,6 +340,30 @@ The main tasks for this exercise are as follows:
 #### Task 1: Open Cloud Shell
 
 1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+
+1. At the Cloud Shell interface, if needed, select **PowerShell**.
+
+1. At the **Cloud Shell** PowerShell prompt, run the following commands to unregister the server and delete the Sync Server Endpoint you created in this lab
+
+   ```powershell
+   $RegisteredServer = Get-AzStorageSyncServer -ResourceGroupName "az1000203b-RG" -StorageSyncServiceName "az1000202b-ss" 
+   Unregister-AzStorageSyncServer -Force -ResourceGroupName "az1000203b-RG" -StorageSyncServiceName "az1000202b-ss" -ServerId $RegisteredServer.ServerId
+   ```
+     > **Note**: You should review the warnings at [Remove a server endpoint](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) before removing an endpoint.
+
+1. At the **Cloud Shell** PowerShell prompt, run the following commands to delete the Sync Cloud Endpoint you created in this lab
+
+   ```powershell
+   $CloudEndpoint =  Get-AzStorageSyncCloudEndpoint -ResourceGroupName "az1000203b-RG" -StorageSyncServiceName "az1000202b-ss" -SyncGroupName "az1000202b-syncgroup1"
+   Remove-AzStorageSyncCloudEndpoint -Force -ResourceGroupName "az1000203b-RG" -StorageSyncServiceName "az1000202b-ss" -SyncGroupName "az1000202b-syncgroup1" -Name $CloudEndpoint.CloudEndpointName
+   ```
+
+1. At the **Cloud Shell** PowerShell prompt, run the following command to delete the Storage Sync Group you created in this lab
+
+   ```powershell
+   Remove-AzStorageSyncGroup -Force -ResourceGroupName "az1000203b-RG" -StorageSyncServiceName "az1000202b-ss" -Name "az1000202b-syncgroup1"
+   ```
+   > **Note**: The Storage Sync Service will be deleted with its Resource Group in the steps below only if there are _no Sync Groups_; and a Sync Group can only be deleted if there are _no endpoints or registered servers_.
 
 1. At the Cloud Shell interface, select **Bash**.
 
