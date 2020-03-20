@@ -210,7 +210,7 @@ The main tasks for this exercise are as follows:
 
     - Tag Value: **lab**
 
-       > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
+ > **Note**: At this point, your initiative contains two policies. The first of them evaluates the compliance status and the second one enforces tagging during deployment.
 
 
 #### Task 4: Evaluate tagging enforcement and tagging compliance.
@@ -284,7 +284,7 @@ The main tasks for this exercise are as follows:
 
 1. Delete the built-in policy definition named **Require a tag and its value on resources** from the initiative and save the changes.
 
-    > **Note**: At this point, your initiative contains a single policy that automatically remediates tagging non-compliance during deployment of new resources and provides evaluation of compliance status.
+ > **Note**: At this point, your initiative contains a single policy that automatically remediates tagging non-compliance during deployment of new resources and provides evaluation of compliance status.
 
 1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
