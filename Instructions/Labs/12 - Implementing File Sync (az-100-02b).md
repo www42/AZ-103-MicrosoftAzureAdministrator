@@ -133,11 +133,13 @@ The main tasks for this exercise are as follows:
 
     - Hierarchical namespace: **Disabled**
 
+    - NFS v3: **Disabled**
+
      > **Note**: Wait for the storage account to be provisioned then proceed to the next step.
 
 1. In the Azure portal, navigate to the blade representing the newly provisioned storage account.
 
-1. From the storage account blade, display its File Shares blade.
+1. From the storage account blade, display its **File shares** blade.
 
 1. From the storage account **File shares** blade, create a new file share with the following settings:
 
@@ -188,7 +190,7 @@ The main tasks for this exercise are as follows:
    Install-Module -Name Az -AllowClobber
    ```
 
-     > **Note**: When prompted, confirm that you want to proceed with the installation from PSGallery repository.
+     > **Note**: When prompted, confirm that you want to proceed with the installation of the NuGet provider and allow installation from the PSGallery repository.
 
 
 #### Task 3: Run Azure File Sync evaluation tool
@@ -358,5 +360,6 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
 
 > **Result**: In this exercise, you removed the resources used in this lab.
