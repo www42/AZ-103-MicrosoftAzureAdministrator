@@ -390,12 +390,14 @@ The main tasks for this exercise are as follows:
 
 1.	In the Azure portal, sign in to the Azure AD tenant you created in this lab as the user account you used to provision it.
 
+1.	Cancel and then delete the Premium P2 licenses. (Note that it make take up to 72 hours for this change to take effect.)
+
+1.  Cancel and delete the AAD P2 trial using the store for businesses at <https://go.microsoft.com/fwlink/?linkid=2101580> (note that this will required a work or school account in the Azure AD tenant).
+
 1.	Delete all managed Azure AD user accounts.
 
 1.	Delete all Azure AD groups.
 
 1.	Delete all Enterprise App Registrations.
-
-1.	Cancel and then delete the Premium P2 licenses. (Note that it make take up to 72 hours for this change to take effect.)
 
 1.	Delete the Azure AD tenant.  (Note that this cannot be done until the deletion of the licenses takes effect.)
