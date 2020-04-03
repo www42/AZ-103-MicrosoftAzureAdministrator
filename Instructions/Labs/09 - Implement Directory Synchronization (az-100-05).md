@@ -21,41 +21,42 @@ Adatum Corporation wants to integrate its Active Directory with Azure Active Dir
 
  After completing this lab, you will be able to:
 
-- Deploy an Azure VM hosting an Active Directory domain controller
+ - Deploy an Azure VM hosting an Active Directory domain controller
 
-- Create and configure an Azure Active Directory tenant
+ - Create and configure an Azure Active Directory tenant
 
-- Synchronize Active Directory forest with an Azure Active Directory tenant
+ - Synchronize Active Directory forest with an Azure Active Directory tenant
+
 
 
 ### Exercise 1: Deploy an Azure VM hosting an Active Directory domain controller
 
 The main tasks for this exercise are as follows:
 
-1. Identify an available DNS name for an Azure VM deployment
+ 1. Identify an available DNS name for an Azure VM deployment
 
-1. Deploy an Azure VM hosting an Active Directory domain controller by using an Azure Resource Manager template
+ 1. Deploy an Azure VM hosting an Active Directory domain controller by using an Azure Resource Manager template
 
 
 #### Task 1: Identify an available DNS name for an Azure VM deployment
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the Azure subscription you intend to use in this lab and is a Global Administrator of the Azure AD tenant associated with that subscription.
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell pane.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell pane.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+    > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
-1. In the Cloud Shell pane, run the following command, substituting the placeholder &lt;custom-label&gt; with any string which is likely to be unique and the placeholder &lt;location&gt; with the name of the Azure region into which you want to deploy the Azure VM that will host an Active Directory domain controller.
+1. In the Cloud Shell pane, run the following command, substituting the placeholder ***&lt;custom-label&gt;*** with any string which is likely to be unique and the placeholder ***&lt;location&gt;*** with the name of the Azure region into which you want to deploy the Azure VM that will host an Active Directory domain controller.
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
-   ```pwsh
-   Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
-   ```
+    ```powershell
+    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
+    ```
 
-1. Verify that the command returned **True**. If not, rerun the same command with a different value of the &lt;custom-label&gt; until the command returns **True**.
+1. Verify that the command returned **True**. If not, rerun the same command with a different value of the ***&lt;custom-label&gt;*** until the command returns **True**.
 
-1. Note the value of the &lt;custom-label&gt; that resulted in the successful outcome. You will need it in the next task
+1. Note the value of the ***&lt;custom-label&gt;*** that resulted in the successful outcome. You will need it in the next task
 
 
 #### Task 2: Deploy an Azure VM hosting an Active Directory domain controller by using an Azure Resource Manager template
@@ -80,37 +81,35 @@ The main tasks for this exercise are as follows:
 
     - Domain Name: **adatum.com**
 
-    - Dns Prefix: the &lt;custom-label&gt; you identified in the previous task
+    - Dns Prefix: the ***&lt;custom-label&gt;*** you identified in the previous task
 
     - VM Size: **Standard_D2s_v3**
 
-    - _artifacts Location: accept the default value
+    - accept the default value for the remaining settings
 
-    - _artifacts Location Sas Token: leave blank
+    > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine deployed in this task in the third exercise of this lab.
 
-    - Location: accept the default value
-
-   > **Note**: Do not wait for the deployment to complete but proceed to the next exercise. You will use the virtual machine deployed in this task in the third exercise of this lab.
 
 > **Result**: After you completed this exercise, you have initiated deployment of an Azure VM that will host an Active Directory domain controller by using an Azure Resource Manager template
+
 
 
 ### Exercise 2: Create and configure an Azure Active Directory tenant
 
 The main tasks for this exercise are as follows:
 
-1. Create an Azure Active Directory (AD) tenant
+ 1. Create an Azure Active Directory (AD) tenant
 
-1. Add a custom DNS name to the new Azure AD tenant
+ 1. Add a custom DNS name to the new Azure AD tenant
 
-1. Create an Azure AD user with the Global Administrator role
+ 1. Create an Azure AD user with the Global Administrator role
 
 
 #### Task 1: Create an Azure Active Directory (AD) tenant
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Azure Active Directory**.
+1. From the **New** blade, search Azure Marketplace for **Azure Active Directory**.
 
 1. Use the list of search results to navigate to the **Create directory** blade.
 
@@ -122,16 +121,16 @@ The main tasks for this exercise are as follows:
 
   - Country or region: **United States**
 
-   > **Note**: The green check mark in the **Initial domain name** text box will indicate whether the domain name you typed in is valid and unique.
+    > **Note**: The green check mark in the **Initial domain name** text box will indicate whether the domain name you typed in is valid and unique.
 
 
 #### Task 2: Add a custom DNS name to the new Azure AD tenant
 
 1. In the Azure portal, set the **Directory + subscription** filter to the newly created Azure AD tenant.
 
-   > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal
+    > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal
 
-   > **Note**: You might need to refresh the browser window if the **AdatumSync** entry does not appear in the **Directory + subscription** filter list.
+    > **Note**: You might need to refresh the browser window if the **AdatumSync** entry does not appear in the **Directory + subscription** filter list.
 
 1. In the Azure portal, navigate to the **AdatumSync - Overview** blade.
 
@@ -143,7 +142,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **adatum.com** blade, review the information necessary to perform verification of the Azure AD domain name.
 
-   > **Note**: You will not be able to complete the validation process because you do not own the **adatum.com** DNS domain name. This will not prevent you from synchronizing the **adatum.com** Active Directory domain with the Azure AD tenant. You will use for this purpose the default primary DNS name of the Azure AD tenant (the name ending with the **onmicrosoft.com** suffix), which you identified earlier in this task. However, keep in mind that, as a result, the DNS domain name of the Active Directory domain and the DNS name of the Azure AD tenant will differ. This means that Adatum users will need to use different names when signing in to the Active Directory domain and when signing in to Azure AD tenant.
+    > **Note**: You will not be able to complete the validation process because you do not own the **adatum.com** DNS domain name. This will not prevent you from synchronizing the **adatum.com** Active Directory domain with the Azure AD tenant. You will use for this purpose the default primary DNS name of the Azure AD tenant (the name ending with the **onmicrosoft.com** suffix), which you identified earlier in this task. However, keep in mind that, as a result, the DNS domain name of the Active Directory domain and the DNS name of the Azure AD tenant will differ. This means that Adatum users will need to use different names when signing in to the Active Directory domain and when signing in to Azure AD tenant.
 
 
 #### Task 3: Create an Azure AD user with the Global Administrator role
@@ -152,7 +151,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-     - User name: **syncadmin@&lt;DNS-domain-name&gt;** where **&lt;DNS-domain-name&gt;** represents the default primary DNS domain name you identified in the previous task. Take a note of this user name. You will need it later in this lab.
+     - User name: **syncadmin@*&lt;DNS-domain-name&gt;*** where ***&lt;DNS-domain-name&gt;*** represents the default primary DNS domain name you identified in the previous task. Take a note of this user name. You will need it later in this lab.
 
     - Name: **syncadmin**
 
@@ -162,37 +161,38 @@ The main tasks for this exercise are as follows:
 
     - Roles: click **User** and select **Global administrator**
 
-   > **Note**: An Azure AD user with the Global Administrator role is required in order to implement Azure AD Connect.
+    > **Note**: An Azure AD user with the Global Administrator role is required in order to implement Azure AD Connect.
 
 1. Open an InPrivate Microsoft Edge window.
 
 1. In the new browser window, navigate to the Azure portal and sign in using the **syncadmin** user account. When prompted, change the password to a new value.
 
-   > **Note**: You will need to provide the fully qualified name of the **syncadmin** user account, including the Azure AD tenant DNS domain name.
+    > **Note**: You will need to provide the fully qualified name of the **syncadmin** user account, including the Azure AD tenant DNS domain name.
 
 1. Sign out as **syncadmin** and close the InPrivate browser window.
 
 > **Result**: After you completed this exercise, you have created an Azure AD tenant, added a custom DNS name to the new Azure AD tenant, and created an Azure AD user with the Global Administrator role.
 
 
+
 ### Exercise 3: Synchronize Active Directory forest with an Azure Active Directory tenant
 
 The main tasks for this exercise are as follows:
 
-1. Configure Active Directory in preparation for directory synchronization
+ 1. Configure Active Directory in preparation for directory synchronization
 
-1. Install Azure AD Connect
+ 1. Install Azure AD Connect
 
-1. Verify directory synchronization
+ 1. Verify directory synchronization
 
 
 #### Task 1: Configure Active Directory in preparation for directory synchronization
 
    > **Note**: Before you start this task, ensure that the template deployment you started in Exercise 1 has completed.
 
-1. In the Azure portal, set the **Directory + subscription** filter back to the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.
+1. In the Azure portal, set the **Directory + subscription** filter back to the **Default Directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
 
-   > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal
+    > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal.
 
 1. In the Azure portal, navigate to the **adVM** blade, displaying the properties of the Azure VM hosting an Active Directory domain controller that you deployed in the first exercise of this lab.
 
@@ -246,7 +246,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name** and enable the checkbox **Continue without matching all UPN suffixes to verified domain**.
 
-   > **Note**: As explained earlier, this is expected, since you could not verify the custom Azure AD DNS domain **adatum.com**.
+    > **Note**: As explained earlier, this is expected, since you could not verify the custom Azure AD DNS domain **adatum.com**.
 
 1. On the **Domain and OU filtering** page, ensure that only the **ToSync** OU is selected.
 
@@ -258,14 +258,18 @@ The main tasks for this exercise are as follows:
 
 1. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and continue with the installation process.
 
-   > **Note**: Installation should take about 2 minutes.
+    > **Note**: Installation should take about 2 minutes.
 
 1. Close the Microsoft Azure Active Directory Connect window once the configuration is completed.
 
 
 #### Task 3: Verify directory synchronization
 
-1. From the lab virtual machine, in Microsoft Edge, refresh the **Users - All users** blade of the AdatumSync Azure AD tenant.
+1. In the lab virtual machine, in the Microsoft Edge window showing the Azure portal, set the **Directory + subscription** filter back to the **AdatumSync** directory.
+
+    > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal
+
+1. Navigate to **Azure Active Directory** and then open the **Users - All users** blade of the AdatumSync Azure AD tenant.
 
 1. On the **Users - All users** blade, note that the list of user objects includes the **aduser1** account, with the **Windows Server AD** appearing in the **SOURCE** column.
 
@@ -277,7 +281,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Windows PowerShell prompt, start Azure AD Connect delta synchronization by running the following:
 
-   ```pwsh
+   ```powershell
    Import-Module -Name 'C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1'
 
    Start-ADSyncSyncCycle -PolicyType Delta
@@ -287,9 +291,11 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, display the **aduser1 - Profile** blade. Note that the **Department** attribute is now set to **Sales**.
 
-   > **Note**: You might need to wait for another minute and refresh the page again if the **Department** attribute remains not set.
+    > **Note**: You might need to wait for another minute and refresh the page again if the **Department** attribute remains not set.
+
 
 > **Result**: After you completed this exercise, you have configured Active Directory in preparation for directory synchronization, installed Azure AD Connect, and verified directory synchronization.
+
 
 ## Exercise 4: Remove lab resources
 
@@ -297,29 +303,31 @@ The main tasks for this exercise are as follows:
 
 1. Within the RDP session to **adVM**, start Windows PowerShell as Administrator.
 
-1. From the Windows PowerShell console, install the MsOnline PowerShell module by running the following (when prompted, in the NuGet provider is required to continue dialog box, click **Yes**):
+1. From the Windows PowerShell console, install the MsOnline PowerShell module by running the following (when prompted, in the NuGet provider is required to continue dialog box, type **Yes** and hit Enter.):
 
-   ```pwsh
+   ```powershell
    Install-Module MsOnline -Force
    ```
 
 1. From the Windows PowerShell console, connect to the AdatumSync Azure AD tenant by running the following (when prompted, sign in with the SyncAdmin credentials):
 
-   ```pwsh
+   ```powershell
    Connect-MsolService
    ```
 
 1. From the Windows PowerShell console, disable the Azure AD Connect synchronization by running the following:
 
-   ```pwsh
+   ```powershell
    Set-MsolDirSyncEnabled -EnableDirSync $false -Force
    ```
 
 1. From the Windows PowerShell console, verify that the operation was successful by running the following:
 
-   ```pwsh
+   ```powershell
    (Get-MSOLCompanyInformation).DirectorySynchronizationEnabled
    ```
+
+    > **Note**: The result should be `False`; if not, wait a minute and re-run the command.
 
 1. Sign out from the Azure portal and close the Internet Explorer window.
 
@@ -327,7 +335,11 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **Users - All users** blade of the AdatumSync Azure AD tenant and delete all users with the exception of the SyncAdmin account.
 
-> **Note**: You might need to wait a few hours before you can complete this step.
+    > **Note**: You might need to wait a few hours before you can complete this task in the portal. If the Delete user option is not avalable, switch back to the PowerShell window and run the following command:
+    >```powershell
+    >Get-MsolUser | where DisplayName -NE "syncadmin" | Remove-MsolUser -Force
+    >```
+    >Then retun to the portal and **Refresh** the Users list.
 
 1. Navigate to the AdatumSync - Overview blade and click **Properties**.
 
@@ -339,9 +351,16 @@ The main tasks for this exercise are as follows:
 
 1. On the **Delete directory 'AdatumSync'?** blade, click **Delete**.
 
-> **Note**: For any additional  information regarding this task, refer to https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto
+1. Click the `Directory 'AdatumSync' was successfully schedulded for deletion.` notification and then close the RDP session.
+
+> **Note**: For any additional  information regarding this task, refer to [https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-delete-howto)
+
 
 #### Task 2: Open Cloud Shell
+
+1. In the lab virtual machine, in the Edge window showing the Azure portal, set the **Directory + subscription** filter back to the **Default Directory** (the Azure AD tenant associated with the Azure subscription you used in the first exercise of this lab.)
+
+    > **Note**: The **Directory + subscription** filter appears to the left of the notification icon in the toolbar of the Azure portal.
 
 1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
 

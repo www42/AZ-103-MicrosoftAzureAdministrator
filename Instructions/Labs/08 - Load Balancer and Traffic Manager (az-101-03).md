@@ -45,9 +45,9 @@ The main tasks for this exercise are as follows:
 
 1. From the lab virtual machine, start Microsoft Edge, browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using a Microsoft account that has the Owner role in the target Azure subscription.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
@@ -87,7 +87,7 @@ The main tasks for this exercise are as follows:
 
     - Image SKU: **2016-Datacenter**
 
-    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations
+    - Vm Size: use **Standard_DS2_v2**
 
     - Virtual Network Name: **az1010301-vnet**
 
@@ -107,16 +107,16 @@ The main tasks for this exercise are as follows:
 
     - Configuration Function: **ContosoWebsite.ps1\\ContosoWebsite**
 
-   > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+    > **Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
    > **Note**: Do not wait for the deployment to complete but proceed to the next task.
 
 
 #### Task 2: Deploy management Azure VMs running Windows Server 2016 Datacenter with the Web Server (IIS) role installed into an availability set in the second Azure region by using an Azure Resource Manager template
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
@@ -140,7 +140,7 @@ The main tasks for this exercise are as follows:
 
     - Resource group: the name of a new resource group **az1010302-RG**
 
-    - Location: the name of the Azure region different from the one you chose in the previous task and where you can provision Azure VMs
+    - Location: the name of the Azure region ***different from the one you chose in the previous task*** and where you can provision Azure VMs
 
     - Admin Username: **Student**
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
 
     - Image SKU: **2016-Datacenter**
 
-    - Vm Size: use **Standard_DS1_v2** or **Standard_DS2_v2**, based on the instructor's recommendations
+    - Vm Size: use **Standard_DS2_v2**
 
     - Virtual Network Name: **az1010302-vnet**
 
@@ -200,9 +200,9 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Before you start this task, ensure that the template deployment you started in the first task of the previous exercise has completed.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Load Balancer**.
+1. From the **New** blade, search Azure Marketplace for **Load Balancer**.
 
 1. Use the list of search results to navigate to the **Create load balancer** blade.
 
@@ -250,7 +250,7 @@ The main tasks for this exercise are as follows:
 
     - Network IP configuration: **az1010301w-nic1/ipconfig1 (10.101.31.5)**
 
-   > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
+    > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
 
    > **Note**: Wait for the operation to complete. This should take less than a minute.
 
@@ -301,9 +301,9 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Before you start this task, ensure that the template deployment you started in the second task of the previous exercise has completed.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Load Balancer**.
+1. From the **New** blade, search Azure Marketplace for **Load Balancer**.
 
 1. Use the list of search results to navigate to the **Create load balancer** blade.
 
@@ -351,7 +351,7 @@ The main tasks for this exercise are as follows:
 
     - Network IP configuration: **az1010302w-nic1/ipconfig1 (10.101.32.5)**
 
-   > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
+    > **Note**: It is possible that the IP addresses of the Azure VMs are assigned in the reverse order.
 
    > **Note**: Wait for the operation to complete. This should take less than a minute.
 
@@ -418,6 +418,8 @@ The main tasks for this exercise are as follows:
 
     - Protocol: **TCP**
 
+    - Idle timeout (minutes): **4**
+
     - Port: **33890**
 
     - Target virtual machine: **az1010301w-vm0**
@@ -443,6 +445,8 @@ The main tasks for this exercise are as follows:
     - Service: **Custom**
 
     - Protocol: **TCP**
+
+    - Idle timeout (minutes): **4**
 
     - Port: **33891**
 
@@ -477,6 +481,8 @@ The main tasks for this exercise are as follows:
 
     - Protocol: **TCP**
 
+    - Idle timeout (minutes): **4**
+
     - Port: **33890**
 
     - Target virtual machine: **az1010302w-vm0**
@@ -502,6 +508,8 @@ The main tasks for this exercise are as follows:
     - Service: **Custom**
 
     - Protocol: **TCP**
+
+    - Idle timeout (minutes): **4**
 
     - Port: **33891**
 
@@ -534,7 +542,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az1010301w-lb** blade, identify the public IP address assigned to the load balancer frontend.
 
-1. From the lab virtual machine, run the following command, after replacing the &lt;az1010301w-lb_public_IP&lt; placeholder with the IP address you identified in the previous task:
+1. From the lab virtual machine, start Command Prompt and run the following command, after replacing the ***&lt;az1010301w-lb_public_IP&gt;*** placeholder with the IP address you identified in the previous task:
 
    ```
    mstsc /v:<az1010301w-lb_public_IP>:33890
@@ -548,7 +556,7 @@ The main tasks for this exercise are as follows:
 
     - Admin Password: **Pa55w.rd1234**
 
-1. Once you sign in, from the command prompt, run the following command:
+1. Once you sign in, start Command Prompt and run the following command:
 
    ```
    hostname
@@ -556,9 +564,12 @@ The main tasks for this exercise are as follows:
 
 1. Review the output and verify that you are actually connected to the **az1010301w-vm0** Azure VM.
 
-   > **Note**: Repeat the same tests for the second region.
+1. Sign out of the remote desktop session.
+
+> **Note**: Repeat the same tests for the second region.
 
 > **Result**: After you completed this exercise, you have implemented load balancing rules and NAT rules of Azure in two Azure regions and verified load balancing rules and NAT rules of Azure load balancers in the first region.
+
 
 
 ### Exercise 2: Implement Azure Traffic Manager load balancing
@@ -595,9 +606,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Implement Azure Traffic Manager load balancing
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Traffic Manager profile**.
+1. From the **New** blade, search Azure Marketplace for **Traffic Manager profile**.
 
 1. Use the list of search results to navigate to the **Create Traffic Manager profile** blade.
 
@@ -666,7 +677,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**:  If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
-1. In the Cloud Shell pane, run the following command, replacing the &lt;TM_DNS_name&lt; placeholder with the value of the DNS name assigned to the Traffic Manager profile you identified in the previous task:
+1. In the Cloud Shell pane, run the following command, replacing the ***&lt;TM_DNS_name&gt;*** placeholder with the value of the DNS name assigned to the Traffic Manager profile you identified in the previous task:
 
    ```
    nslookup <TM_DNS_name>
@@ -683,7 +694,10 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have implemented and verified Azure Traffic Manager load balancing
 
+
+
 ## Exercise 3: Remove lab resources
+
 
 #### Task 1: Open Cloud Shell
 
@@ -698,6 +712,7 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
 
 #### Task 2: Delete resource groups
 

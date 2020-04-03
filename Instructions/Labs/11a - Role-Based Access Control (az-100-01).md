@@ -25,6 +25,7 @@ After completing this lab, you will be able to:
 -  Verify delegation by provisioning Azure resources as a delegated admin and auditing provisioning events
 
 
+
 ### Exercise 1: Configure delegation of provisioning and management of Azure resources by using built-in Role-Based Access Control (RBAC) roles and built-in Azure policies
 
 The main tasks for this exercise are as follows:
@@ -50,7 +51,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Users - All users** blade, create a new user with the following settings:
 
-    - User name: **aaduser100011@&lt;DNS-domain-name&gt;** where &lt;DNS-domain-name&gt; represents the primary DNS domain name you identified earlier in this task.
+    - User name: **aaduser100011@*&lt;DNS-domain-name&gt;*** where ***&lt;DNS-domain-name&gt;*** represents the primary DNS domain name you identified earlier in this task.
 
     - Name: **aaduser100011**
 
@@ -101,7 +102,7 @@ The main tasks for this exercise are as follows:
 
     - Resource group location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
 
-   > **Note**: To identify Azure regions available in your subscription, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
+         > **Note**: To identify Azure regions available in your subscription, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
 1. From the **Resource groups** blade, create the second resource group with the following settings:
 
@@ -137,23 +138,33 @@ The main tasks for this exercise are as follows:
 
 1. Assign the policy with the following settings:
 
-    - Scope: **az1000101-RG**
+   - Basics tab:
 
-    - Exclusions: leave the entry blank
+     - Scope: ***&lt;name of the subscription you are using in this lab&gt;*/az1000101-RG**
 
-    - Policy definition: **Allowed virtual machine SKUs**
+     - Exclusions: leave the entry blank
 
-    - Assignment name: **Allowed virtual machine SKUs**
+     - Policy definition: **Allowed virtual machine SKUs**
 
-    - Description: **Allowed selected virtual machine SKUs (Standard_DS1_v2)**
+     - Assignment name: **Allowed virtual machine SKUs**
 
-    - Assigned by: leave the entry set to its default value
-	
-    - Allowed SKUs: **Standard_DS1_v2**
+     - Description: **Allowed selected virtual machine SKUs (Standard_DS1_v2)**
 
-    - Create a Managed Identity: leave the entry blank
+     - Policy enforcement: **Enabled**
+
+     - Assigned by: leave the entry set to its default value
+
+   - Parameters tab:
+    
+     - Allowed SKUs: **Standard_DS1_v2**
+
+   - Remediation tab:
+
+     - Create a Managed Identity: leave the entry blank
+
 
 > **Result**: After you completed this exercise, you have created an Azure AD user and an Azure AD group, created two Azure resource groups, delegated management of the first Azure resource group via the built-in Azure VM Contributor RBAC role, and assigned to the same resource group the built-in Azure policy restricting SKUs that can be used for Azure VMs.
+
 
 
 ### Exercise 2: Verify delegation by provisioning Azure resources as a delegated admin and auditing provisioning events
@@ -171,45 +182,45 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Identify an available DNS name for an Azure VM deployment
 
-1. From the Azure Portal, start a PowerShell session in the Cloud Shell.
+1. From the Azure Portal, start a **PowerShell** session in the Cloud Shell.
 
-   > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
+     > **Note**: If this is the first time you are launching the Cloud Shell in the current Azure subscription, you will be asked to create an Azure file share to persist Cloud Shell files. If so, accept the defaults, which will result in creation of a storage account in an automatically generated resource group.
 
-1. In the Cloud Shell pane, run the following command, substituting the placeholder &lt;custom-label&gt; with any string which is likely to be unique and the placeholder &lt;location-of-az1000101-RG&gt; with the name of the Azure region in which you created the **az1000101-RG** resource group.
+1. In the Cloud Shell pane, run the following command, substituting the placeholder ***&lt;custom-label&gt;*** with any string which is likely to be unique and the placeholder ***&lt;location-of-az1000101-RG&gt;*** with the name of the Azure region in which you created the **az1000101-RG** resource group.
 
-   ```pwsh
+   ```powershell
    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location-of-az1000101-RG>'
    ```
 
-1. Verify that the command returned **True**. If not, rerun the same command with a different value of the &lt;custom-label&gt; until the command returns **True**.
+1. Verify that the command returned **True**. If not, rerun the same command with a different value of the ***&lt;custom-label&gt;*** until the command returns **True**.
 
-1. Note the value of the &lt;custom-label&gt; that resulted in the successful outcome. You will need it in the next task
+1. Note the value of the ***&lt;custom-label&gt;*** that resulted in the successful outcome. You will need it in the next task
 
 1. Run these commands:
 
-   ```pwsh
+   ```powershell
    Register-AzResourceProvider –ProviderNamespace Microsoft.Network
    ```
 
-   ```pwsh
+   ```powershell
    Register-AzResourceProvider –ProviderNamespace Microsoft.Compute
    ```
 
-Note: These cmdlets register the Azure Resource Manager Microsoft.Network and Microsoft.Compute resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
+     > **Note**: These cmdlets register the Azure Resource Manager Microsoft.Network and Microsoft.Compute resource providers. This is a one-time operation (per subscription) required when using Azure Resource Manager templates to deploy resources managed by these resource providers (if these resource providers have not been yet registered).
 
-Also Note: If you encounter an error after running these commands that mentions a token expiry set to a time that is before the current time, click the power button icon on our Cloud Shell UI and reboot your Cloud Shell instance.  Once restarted, retry these commands.
+     > **Also Note**: If you encounter an error after running these commands that mentions a token expiry set to a time that is before the current time, click the power button icon on our Cloud Shell UI and reboot your Cloud Shell instance.  Once restarted, retry these commands.
 
 #### Task 2: Attempt an automated deployment of a policy non-compliant Azure VM as a delegated admin
 
-1. Launch another browser window in the Private mode.
+1. Launch another browser window in the InPrivate mode.
 
-1. In the new browser window, navigate to the Azure portal and sign in using the user account you created in the previous exercise. When prompted, change the password to a new value.
+1. In the new browser window, navigate to the Azure portal and sign in using the user account **aaduser100011@*&lt;DNS-domain-name&gt;*** where ***&lt;DNS-domain-name&gt;*** represents the primary DNS domain name you identified earlier. When prompted, change the password to a new value.
 
 1. In the Azure portal, navigate to the **Resource groups** blade and note that you can view only the resource group **az1000101-RG**.
 
-1. In the Azure portal, navigate to the **Create a resource** blade.
+1. In the Azure portal, navigate to the **New** blade.
 
-1. From the **Create a resource** blade, search Azure Marketplace for **Template deployment**.
+1. From the **New** blade, search Azure Marketplace for **Template deployment**.
 
 1. Use the list of search results to navigate to the **Deploy a custom template** blade.
 
@@ -231,20 +242,21 @@ Also Note: If you encounter an error after running these commands that mentions 
 
     - Admin Username: **Student**
 
-    - Admin Password: **Pa55w.rd1234**
+    - Authentication Type: **password**
 
-    - Dns Label Prefix: the &lt;custom-label&gt; you identified in the previous task
+    - Admin Password Or Key: **Pa55w.rd1234**
 
-    - Ubuntu OS Version: accept the default value
+    - Dns Label Prefix: the ***&lt;custom-label&gt;*** you identified in the previous task
 
-    - Location: accept the default value
+    - Accept the default values of the remaining settings
+
 
 1. Note that the initiation of the deployment fails. Navigate to the **Errors** blade and note that the deployment of the resource is not allowed by the policy **Allowed virtual machine SKUs**.
 
 
 #### Task 3: Perform an automated deployment of a policy compliant Azure VM as a delegated admin
 
-1. From the **Deploy a simple Ubuntu Linux VM** blade, navigate to the **Edit template** blade.
+1. From the **Deploy a simple Ubuntu Linux VM** blade, navigate to the **Edit parameters** blade.
 
 1. On the **Edit parameters** blade, locate the **vmSize** entry.
 
@@ -267,7 +279,10 @@ Also Note: If you encounter an error after running these commands that mentions 
 
 1. Refresh the view of the blade and observe events corresponding to the Azure VM provisioning, including the final one representing the successful deployment.
 
+
 > **Result**: After you completed this exercise, you have identified an available DNS name for an Azure VM deployment, attempted an automated deployment of a policy non-compliant Azure VM as a delegated admin, performed an automated deployment of a policy compliant Azure VM as the same delegated admin, and reviewed Azure Activity Log entries corresponding to both Azure VM deployments.
+
+
 
 ## Exercise 3: Remove lab resources
 
@@ -294,5 +309,6 @@ Also Note: If you encounter an error after running these commands that mentions 
    ```
 
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
 
 > **Result**: In this exercise, you removed the resources used in this lab.
