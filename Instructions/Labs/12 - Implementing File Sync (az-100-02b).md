@@ -190,7 +190,7 @@ The main tasks for this exercise are as follows:
    Install-Module -Name Az -AllowClobber
    ```
 
-     > **Note**: When prompted, confirm that you want to proceed with the installation of the NuGet provider and allow installation from the PSGallery repository.
+     > **Note**: When prompted, confirm that you want to proceed with the installation of the NuGet provider and allow installation from the PSGallery repository. If you run into an error pertaining to the version of NuGet, run the following: `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`, then retry the command above.
 
 
 #### Task 3: Run Azure File Sync evaluation tool
