@@ -1,10 +1,10 @@
 # AZ-103 Microsoft Azure Administrator
 
+> **AZ-104 has been released. We will continue to monitor this repository in the short term, but please consider moving over to the new labs as soon as possible.**
+
 > **Microsoft is prioritizing cloud resources for Covid-19 support. You can read more here - [Update #2 on Microsoft cloud services continuity](https://azure.microsoft.com/en-us/blog/update-2-on-microsoft-cloud-services-continuity/). There is also an active discussion on the MCT Courseware Forum.**
 
-**AZ-104 has been released. We will continue to monitor this repository in the short term, but please consider moving over to the new labs as soon as possible.**
-
-
+> **There is a [Lab Recordings and Demos](https://github.com/MicrosoftLearning/Lab-Demo-Recordings) repo with links to videos of labs used in Microsoft Official Curriculum. The intent is to provide Microsoft Certified Trainers an easy way to access a non-audio version recording of hands-on labs used in the portfolio.**
 
 - **Are you a MCT?** - Have a look at our [GitHub User Guide for MCTs](https://microsoftlearning.github.io/MCT-User-Guide/)
 - **Need to manually build the lab instructions?** - Instructions are available in the [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) repository
